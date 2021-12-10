@@ -1,8 +1,7 @@
 <?php
-
-include "./html/home.html";
-
-/*test comment*/
-/* Nein Du */
+include "./html/head.html";
+include "./html/header.html";
+include "./html/footer.html";
+include "./html/foot.html";
 
  ?>
