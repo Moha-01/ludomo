@@ -11,5 +11,7 @@ include "./html/foot.html";
 <br>
 <h1>Herzlich Willkommen!</h1>
 <h2>LUDOMO - Der Shop für alle Games</h1>
-<button type="button" class="button">Starte in das Gaminguniverse</button>
+<a href="http://localhost/ludomo/">
+  <button type="button" class="button">Starte in das Gaminguniverse</button>
+</a>
 </div>
