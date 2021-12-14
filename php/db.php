@@ -1,0 +1,6 @@
+<?php
+
+// Datenbank initialisieren
+
+
+?>
