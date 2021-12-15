@@ -1,0 +1,54 @@
+<?php
+
+// Bei sqlBefehl muss nur der SQL Befehl unten nach oben kopiert werden dann dürfte es immer die gesamte Tabelle Ausgeben die Hierbei zutrifft.
+$sqlBefehl = '';
+$server = 'mysql:host=localhost;dbname=ludomo';
+$verbindung = new PDO($server, "root", "");
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
+$ergebnismenge = $abfrage->fetchAll();
+$verbindung = null
+
+
+
+//LOGIN
+//SELECT `*` FROM `user_tabelle` WHERE ( `email` = l_name_email AND `password` = l_password ) or ( `username` = l_name_email AND `password` = l_password )
+//User Exist
+//SELECT `*` FROM `user_tabelle` WHERE ( `email` = l_name_email ) or ( `username` = l_name_email)
+//Filter
+//Name
+//SELECT `*` FROM `products` WHERE ( `name` = l_filter)
+//preis
+//SELECT `*` FROM `products` WHERE ( `endpreis` >= l_von AND `endpreis` <= l_bis )
+//Single/Multie
+//SELECT `*` FROM `products` WHERE ( `S_M_ID` = l_filter)
+//Firma
+//SELECT `*` FROM `products` WHERE ( `grand_name` = l_filter)
+//fsk
+//SELECT `*` FROM `products` WHERE ( `fsk` = l_filter)
+//genre
+//SELECT `*` FROM `products` WHERE ( `genre_name` = l_filter)
+//SALE
+//SELECT `*` FROM `products` WHERE ( `rabatt` =! l_filter)
+
+
+
+
+
+?>
+<?php
+$server = 'mysql:host=localhost';
+$sqlBefehl = 'CREATE DATABASE IF NOT EXISTS ludomo;';
+$verbindung = new PDO($server, "root", "");
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
+$server = 'mysql:host=localhost;dbname=ludomo';
+$sqlBefehl = 'CREATE TABLE IF NOT EXISTS products(ID INTEGER AUTO_INCREMENT,brand_name VARCHAR (50),genre_name VARCHAR (50),S_M_id INTEGER, name VARCHAR (100),preis float,rabatt INTEGER,endpreis float,background varchar(200),discription varchar(200),picture varchar(200),fsk INTEGER,PRIMARY KEY (ID));';
+$verbindung = new PDO($server, "root", "");
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
+$verbindung = new PDO($server, "root", "");
+$sqlBefehl = 'CREATE TABLE IF NOT EXISTS user_tabelle(ID INTEGER AUTO_INCREMENT,username varchar(100),password varchar(100),email varchar(100),privalage int,PRIMARY KEY (ID));';
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
+ ?>

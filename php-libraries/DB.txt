@@ -1,0 +1,38 @@
+#############################  Warenkorb ##################################
+
+--> Cookies
+
+#############################  Products ##################################
+
+id;brand_name;genre_name;S_M_id;name;preis;rabatt;endpreis;background;discription;picture;fsk
+
+1;ubisoft;rpg;1;GameName;100.00;20;80.00;PATH_OF_Background.PNG;Discription.txt;PATH_OF_Picture.PNG;18
+
+id = Nummer des Tabellen Eintrag (int)
+brand_name = name des Brands
+genre_name = name des Spiel Arts
+
+S_M_id == 1 => Single Mode
+S_M_id == 2 => Multi Mode
+
+preis = float
+rabatt = int
+endpreis = float
+
+background = pfad zur einen Wallpaper des Spiels
+discription = Pfad zur einer Text Datei
+picture = pfad zur einen Image des Spiels
+fsk = int
+
+
+
+#############################  User Tabelle ##################################
+
+id;username;password;email;privalage
+
+
+privalage = int {
+    1 = admin
+    2 = normaluser
+    3 = guest
+}
