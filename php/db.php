@@ -3,12 +3,7 @@ $server = 'mysql:host=localhost';
 $sqlBefehl = 'CREATE DATABASE IF NOT EXISTS ludomo;';
 $verbindung = new PDO($server, "root", "");
 $abfrage = $verbindung->prepare($sqlBefehl);
-try {
-  $abfrage->execute();
-} catch (\Exception $e) {
-  echo "fail1";
-}
-
+$abfrage->execute();
 $verbindung=null;
 $server = 'mysql:host=localhost;dbname=ludomo';
 $verbindung = new PDO($server, "root", "");
@@ -18,6 +13,7 @@ $abfrage->execute();
 $sqlBefehl = 'CREATE TABLE IF NOT EXISTS user_tabelle(ID INTEGER AUTO_INCREMENT, username varchar(100), password varchar(100), email varchar(100), privalage int, PRIMARY KEY (ID));';
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
+//          ab hier gibts probleme
 //$csvInhalt = file("php-libraries\Products.csv", FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES);
 //$daten = [];
 //$trennzeichen = ";";
@@ -34,5 +30,5 @@ $abfrage->execute();
 // $daten[] = "('" . $ID . "','" . $username . "','" . $password . "','" . $email ."','" . $privalage "')" . chr(13);
 //}
 //$sql = `INSERT INTO 'User_Tabelle' ('ID', 'username', 'password', 'email', 'privalage') VALUES" . implode(",", $daten) . ";`;
-//$verbindung=null;
+$verbindung=null;
  ?>
