@@ -20,9 +20,9 @@ $abfrage->execute();
 $sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/products.csv' INTO TABLE `Products` FIELDS TERMINATED BY ';'  LINES STARTING BY '...' IGNORE 1 LINES;";
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
-//$sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/User_Tabelle.csv' INTO TABLE User_Tabelle FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
-//$abfrage = $verbindung->prepare($sqlBefehl);
-//$abfrage->execute();
+$sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/User_Tabelle.csv' INTO TABLE User_Tabelle FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
 }
 $verbindung=null;
  ?>
