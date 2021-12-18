@@ -29,13 +29,60 @@ height: 700px;
   margin: 24px 5px 24px 5px;
 }
 
+#form_container{
+}
+
+#account_td{
+  padding: 10px;
+}
+
 .form_container{
+  position: relative;
+}
+
+.inline_text{
+  font-family: 'Bahnschrift';
+  width: 95%;
+  display: block;
+  margin: 10px auto;
   text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+
+}
+.inline_button{
+  font-family: 'Bahnschrift';
+  width: 80%;
+  text-align: center;
+  padding: 10px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  transition: 300ms;
+  transition-delay: 10ms;
+  transition-timing-function: ease-in-out;
+}
+
+.account_table_container{
+  margin: 0px auto;
+}
+
+#account_form{
+  padding: 20px;
+  margin: 10px auto;
+  border: solid black;
+  border-width: 8px;
+  border-style: double;
+  border-radius: 10px;
+}
+
+.inline_button:hover{
+    border-color: #a012b3;
+    transform: scale(1.2);
 }
 
 .avatar {
-  width: 5%;
-  border-radius: 50%;
+  width: 20%;
 }
 
 .button{
