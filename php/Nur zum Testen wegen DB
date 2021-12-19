@@ -31,24 +31,31 @@ $verbindung = null
 //SALE
 //SELECT `*` FROM `products` WHERE ( `rabatt` =! l_filter)
 
+//        So erstellst du Cookies
+// setcookie(
+// "Name des Cookies",
+// "Wert des Coockies",
+// time()+zeit wie lane der Coockie gülitg ist)
+setcookie("Test","Test",time()+3600);
+//      so liest du Cookies
+// alle Cockis sind in $_COOKIE[] erhältilich
+// also kann man sich den wert(2te Eingabe) des Coockies Test Rausschreiben mit:
+$Test_Cookie = $_COOKIE['Test'];
+//      testen ob es ein Coockie gibt.
+// hierfür nutzt man:
+if (isset($_COOKIE['Test'])) {
+}
+//        zum Updaten verwndet man ebenso setcookie mit dem gleichen Namen und überschreibt diesen einfach:
+setcookie("Test"."Test_2",time()+10000);
+// zum Löschen eines Cookies einfach den Coockie mit einem Zeitpunkt in der Vergangenheit updaten:
+setcookie("Test"."Test_2",time()-3600);
+// Array in Coockie Speichern:
+$test_array = ['name' => 'root','email' => 'test@test.com','privalage' => '10'];
+$test_array = serialize($test_array);
+setcookie('Test',$test_array,time()+3600);
+// Array aus Coockie lesen
+$test_array = unserialize($_COOKIE['Test']);
+// aus den Array selektieren
+$name  = $test_array['name'];
 
-
-
-
-?>
-<?php
-$server = 'mysql:host=localhost';
-$sqlBefehl = 'CREATE DATABASE IF NOT EXISTS ludomo;';
-$verbindung = new PDO($server, "root", "");
-$abfrage = $verbindung->prepare($sqlBefehl);
-$abfrage->execute();
-$server = 'mysql:host=localhost;dbname=ludomo';
-$sqlBefehl = 'CREATE TABLE IF NOT EXISTS products(ID INTEGER AUTO_INCREMENT,brand_name VARCHAR (50),genre_name VARCHAR (50),S_M_id INTEGER, name VARCHAR (100),preis float,rabatt INTEGER,endpreis float,background varchar(200),discription varchar(200),picture varchar(200),fsk INTEGER,PRIMARY KEY (ID));';
-$verbindung = new PDO($server, "root", "");
-$abfrage = $verbindung->prepare($sqlBefehl);
-$abfrage->execute();
-$verbindung = new PDO($server, "root", "");
-$sqlBefehl = 'CREATE TABLE IF NOT EXISTS user_tabelle(ID INTEGER AUTO_INCREMENT,username varchar(100),password varchar(100),email varchar(100),privalage int,PRIMARY KEY (ID));';
-$abfrage = $verbindung->prepare($sqlBefehl);
-$abfrage->execute();
  ?>
