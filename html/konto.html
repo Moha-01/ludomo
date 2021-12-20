@@ -1,7 +1,7 @@
 <table class="account_table_container">
   <tr>
     <td class="account_td">
-      <form action="createaccountaction.php" method="post" class="account_form">
+      <form method="post" class="account_form">
         <label class="inline_text">R E G I S T E R</label>
         <div class = "img_container">
           <img src="../assets/images/avatar_img.png" alt="Avatar" class="avatar">
@@ -17,28 +17,52 @@
           <label class="inline_text">Password</label>
           <input class="inline_button" type="password" placeholder="password" name="password" required>
 
-          <button class="inline_button" type="submit">Register</button>
+          <button class="inline_button" type="submit" name="btnRegister">Register</button>
+
+          <?php
+          if(isset($_POST['btnRegister'])){
+            $con = new PDO('mysql:host=localhost;dbname=ludomo', "root", "",); //Verbindung zu DB aufbauen
+            $sql = "INSERT INTO user_tabelle( username, password, email, privalage) VALUES ('$_POST[username]','$_POST[password]','$_POST[email]',1)";
+            $con->exec($sql);
+            $con=null;
+          }
+          ?>
+
         </div>
       </form>
     </td>
     <td class="account_td">
-      <form action="loginaction.php" method="post" class="account_form">
+      <form method="post" class="account_form">
         <label class="inline_text">L O G I N</label>
         <div class = "img_container">
           <img src="../assets/images/avatar_img.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="form_container">
-          <label class="inline_text">Username</label>
-          <input class="inline_button" type="text" placeholder="username" name="username" required>
-
-          <label class="inline_text" >E-Mail</label>
-          <input class="inline_button" type="email" placeholder="email" name="email" required>
+          <label class="inline_text">Username/E-Mail</label>
+          <input class="inline_button" type="text" placeholder="username or E-Mail" name="username" required>
 
           <label class="inline_text">Password</label>
           <input class="inline_button" type="password" placeholder="password" name="password" required>
 
-          <button class="inline_button" type="submit">Login</button>
+          <button class="inline_button" type="submit" name="btnLogin">Login</button>
+
+          <?php
+          if(isset($_POST['btnLogin'])){
+            $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
+            $sql = "SELECT * FROM user_tabelle WHERE (email = '$_POST[username]' AND password = '$_POST[password]') or (username = '$_POST[username]' AND password = $_POST[password])";
+            $result  = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) > 0){
+              while($row = mysqli_fetch_assoc($result)) {
+                echo "Logged in as ".$row["username"];
+                setcookie("username", $row["username"], time() + (3600*24), "/");
+              }
+            }
+          }
+            mysqli_close($conn);
+          ?>
+
         </div>
       </form>
     </td>
