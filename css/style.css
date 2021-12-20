@@ -55,6 +55,13 @@ object-fit: cover;
   border-radius: 4px;
 
 }
+
+#acc_text{
+  font-family: 'Bahnschrift';
+  width: 95%;
+  text-align: center;
+
+}
 .inline_button{
   font-family: 'Bahnschrift';
   width: 80%;

@@ -32,7 +32,7 @@
       </form>
     </td>
     <td class="account_td">
-      <form method="post" class="account_form">
+      <form method="post" class="account_form" action="konto.php">
         <label class="inline_text">L O G I N</label>
         <div class = "img_container">
           <img src="../assets/images/avatar_img.png" alt="Avatar" class="avatar">
@@ -59,12 +59,26 @@
                 setcookie("username", $row["username"], time() + (3600*24), "/");
               }
             }
-          }
             mysqli_close($conn);
+          }
           ?>
 
         </div>
       </form>
     </td>
+    <?php
+    if(isset($_COOKIE["username"])){
+      echo "<td>";
+      echo "<label class='inline_text'>A C C O U N T</label>";
+      echo "<label id='acc_text'>Currently logged in as: " .$_COOKIE["username"]."</label>";
+      echo "<form method='post' action='konto.php'><button class='inline_button' type='submit' name='btnLogout'>Logout</button></form>";
+      echo "</td>";
+    }
+
+    if(isset($_POST['btnLogout'])){
+      setcookie("username", "username", time() - 1, "/");
+    }
+
+    ?>
   </tr>
 </table>
