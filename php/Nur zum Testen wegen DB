@@ -12,7 +12,7 @@ $verbindung = null
 
 
 //LOGIN
-//SELECT `*` FROM `user_tabelle` WHERE ( `email` = l_name_email AND `password` = l_password ) or ( `username` = l_name_email AND `password` = l_password )
+//SELECT * FROM `user_tabelle` WHERE ( `email` = l_name_email AND `password` = l_password ) or ( `username` = l_name_email AND `password` = l_password )
 //User Exist
 //SELECT `*` FROM `user_tabelle` WHERE ( `email` = l_name_email ) or ( `username` = l_name_email)
 //Filter
@@ -57,5 +57,13 @@ setcookie('Test',$test_array,time()+3600);
 $test_array = unserialize($_COOKIE['Test']);
 // aus den Array selektieren
 $name  = $test_array['name'];
+
+
+
+setcookie("Wahrenkorb",serialize($Einkaufswagen_Tab),time()+3600)
+$Einkaufswagen_Tab = unserialize($_COOKIE['Wahrenkorb'])
+setcookie("count",count($Einkaufswagen_Tab),time()+3600)
+$_COOKIE['count']
+
 
  ?>
