@@ -1,0 +1,70 @@
+Über dieses Spiel
+Für unsere Deutschen Spieler
+
+Leider werden einige wichtige Informationen zum Spiel, wie zum Beispiel Missionsbeschreibungen, nur auf Englisch angezeigt. Wir entschuldigen uns zutiefst für die Verwirrung und arbeiten an einem Update, um dieses Problem so schnell wie möglich zu beheben.
+
+Dies ist eher ein Programmierfehler als ein Übersetzungsfehler, daher hoffen wir, ihn schnell beheben zu können. Wir sind bestrebt, Ikarus in viele Sprachen zu übersetzen, damit Menschen aus der ganzen Welt das Spiel genießen können. Danke für Ihre Geduld.
+
+ICARUS ist ein sitzungsbasiertes PvE-Survival-Spiel für bis zu acht Spieler im Koop-Modus.
+
+Überstehe die wilde außerirdische Welt auf Icarus – dem größten Fehler der Menschheit. Überlebe die brutale Umwelt, sammle, stelle Gegenstände her und jage, während du die Welt auf der Suche nach deinem Glück erkundest.
+
+Die Schürfer verlassen ihre orbitale Raumstation und landen für zeitlich begrenzte Perioden auf dem Planeten, wo sie die fremde Umgebung aushalten, Fraktionsmissionen abschließen und nach wertvollen und exotischen Materialien suchen müssen. Alle Überlebenden kehren als erfahrene Veteranen in den Orbit zurück und wandeln ihre exotischen Materialien in fortgeschrittene Technologie um, um mit dem neuen Wissen noch schwierigere Missionen in Angriff zu nehmen. Jene, die zurückgelassen werden, sind für immer verloren.
+
+Icarus sollte einst eine zweite Erde werden, doch nach dem fehlgeschlagenen Terraforming-Projekt wurde die Luft giftig, was die Hoffnung der Menschen, eine neue Welt zu kolonisieren, zerstörte. Icarus wurde zu einer Lachnummer und einem Symbol für eine Menschheit, die nach den Sternen greifen wollte und kläglich daran scheiterte. Doch als die Xeno-Biologen die Ursache des Fehlschlags entdeckten – exotische Materie – wurde das Interesse wieder neu entfacht. Die unglaublich wertvolle exotische Materie sorgt für einen Goldrausch und eine angespannte politische Situation auf der Erde, während neue Schürfer nach Icarus schwärmen.
+
+
+
+Stelle dich einer brutalen PvE-Welt, die alles daransetzt, dich zu zermürben und in Stücke zu reißen, und erobere sie.
+
+Von einer giftigen Atmosphäre über die brutale Tierwelt bis hin zu gefährlichen Stürmen – Icarus ist ein launischer Planet. Vorbereitung und Planung sind entscheidend, egal, ob du einen Schutzraum bauen, eine Sauerstoffquelle finden, deine nächste Mahlzeit jagen oder deine Vorräte für eine lange Reise durch die Wildnis aufstocken musst.
+
+
+
+Tauche in eine täuschend vertraute und dennoch fremdartige Welt ein.
+
+Die Ersten Kohorten von Schürfern haben eine vorläufige Abbaugenehmigung erhalten, die es ihnen erlaubt, über 64 Quadratkilometer Terrain voller Verstecke und abwechslungsreicher Biome zu erkunden, die von Hand erstellt wurden, um dort Ressourcen abzubauen und verschiedene Biome zu erkunden. Verwende die Ressourcen aus deiner Umwelt, um zu überleben – jeder einzelne Baum kann gesammelt und jeder Stein abgebaut werden.
+
+
+
+Meistere drei Tech-Bäume: Planet, Spielertalente und Orbitwerkstatt.
+
+Verwende die Ressourcen des Planeten, um Werkzeuge, Konstruktionen und Maschinen herzustellen, die dich schützen und deine Mission erleichtern. Entwickle einzigartige Fähigkeiten und verbessere deine Grundtalente, während du Erfahrung auf der Oberfläche des Planeten sammelst. Kehre anschließend mit seltenen exotischen Materialien in den Orbit zurück, um fortgeschrittene Technologien zu erhalten. Wähle aus, welche Fähigkeiten du entwickeln und welche Technologien du bei deiner nächsten Mission mitbringen willst, damit du Missionen schneller abschließen, weiterreisen, die Produktion automatisieren und deine Überlebenschancen erhöhen kannst. Jede Entscheidung zählt.
+
+
+
+Deine Zeit auf Icarus ist begrenzt, behalte also stets die Uhr im Auge und nutze jede Sekunde weise.
+
+Wähle aus Perioden, die Stunden, Tage oder Wochen dauern. Solltest du jedoch nicht rechtzeitig zum Landeschiff zurückkehren, um auf die Raumstation zu gelangen, gibt es keine Rettung für dich. Oder plane die Zeit so ein, dass du einen permanenten Außenposten auf dem Planeten errichtest. Bei jeder Landung hast du ein klares Ziel und ein Zeitlimit. Wie du diese Herausforderungen jedoch in Angriff nimmst, ist dir überlassen.
+
+
+
+Dein Charakter ist alles.
+
+Lerne die Feinheiten der Atmosphäre kennen, stelle dich neuen Bedrohungen und überwinde deinen inneren Schweinehund. Die Vorsichtigen überleben, die Mutigen blühen auf. Neue Talente, neue Technologie und neue exotische Materialien warten auf jene, die alles aufs Spiel setzen. Wirst du Icarus zu einem Duell herausfordern?
+
+ICARUS wird von einem Team von Survival-Veteranen bei RocketWerkz in Auckland, Neuseeland, entwickelt.
+Es gibt derzeit 19001 Spieler, die dieses Spiel auf Steam spielen
+Erscheint:
+3 Dezember 2021
+Entwickler:
+RocketWerkz
+Herausgeber:
+RocketWerkz
+Mindestvorraussetzungen*
+OS:Windows 10 (64-bit versions)
+Processor:Intel i5 8400
+Memory:16 GB RAM
+Graphics:Nvidia GTX 1060 6GB
+DirectX:Version 11
+Network:Broadband Internet connection
+Storage:70 GB available space
+Empfohlene Systemvorraussetzungen*
+OS:Windows 10 (64-bit versions)
+Processor:Intel i7-9700
+Memory:32 GB RAM
+Graphics:NVIDIA RTX 3060ti
+DirectX:Version 11
+Network:Broadband Internet connection
+Storage:70 GB available space
+*Bezeichnungen und Anforderungen dienen nur zu Informationszwecken
