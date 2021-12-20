@@ -1,11 +1,12 @@
-...ID;brand_name;genre_name;S_M_id;name;preis;rabatt;endpreis;background;discription;picture;fsk
-...1;Ubisoft;Shooter;1;Far Cry 6 (Europe);60;42;35.72;\xampp\htdocs\ludomo\assets\images;\xampp\htdocs\ludomo\assets\discription;\xampp\htdocs\ludomo\assets\images;18
-...2;Steam;Shooter;2;GTFO (+Early Access);40;44;22.59;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;18
-...3;Steam;Sinulation;1;Planet Zoo: Europe Pack;10;33;6.7;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
-...4;Origin;MMO;2;FIFA 22;60;35;39.29;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
-...5;Switch;Simulation;2;Animal Crossing: New Horizons - Happy Home Paradise Switch (Europe);25;20;19.99;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
-...6;Steam;Simulation;1;Farming Simulator 22;40;32;27.29;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
-...7;Steam;Simulation;1;Football Manager 2022 (Europe);55;42;31.99;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
-...8;Steam;Strategie;2;Age of Empires IV;60;37;37.79;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;6
-...9;Steam;Survival;2;Icarus;25;12;21.89;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;12
-...10;Microsoft;Action;2;Forza Horizon 5 (PC / Xbox ONE / Xbox Series X|S);70;36;44.49;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...ID;brand_id;genre_name;S_M_id;name;preis;rabatt;endpreis;background;discription;picture;fsk
+...1;1;Shooter;1;Far Cry 6 (Europe);60;42;35.72;\xampp\htdocs\ludomo\assets\images;\xampp\htdocs\ludomo\assets\discription;\xampp\htdocs\ludomo\assets\images;18
+...2;3;Shooter;2;GTFO (+Early Access);40;44;22.59;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;18
+...3;3;Simulation;1;Planet Zoo: Europe Pack;10;33;6.7;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...4;4;MMO;2;FIFA 22;60;35;39.29;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...5;6;Simulation;2;Animal Crossing: New Horizons - Happy Home Paradise Switch (Europe);25;20;19.99;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...6;3;Simulation;1;Farming Simulator 22;40;32;27.29;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...7;3;Simulation;1;Football Manager 2022 (Europe);55;42;31.99;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...8;3;Strategie;2;Age of Empires IV;60;37;37.79;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;6
+...9;3;Survival;2;Icarus;25;12;21.89;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;12
+...10;2;Action;2;Forza Horizon 5 (PC / Xbox ONE / Xbox Series X|S);70;36;44.49;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;0
+...11;5;Action;2;Fortnite;70;36;44.49;xampphtdocsludomoassetsimages;xampphtdocsludomoassetsdiscription;xampphtdocsludomoassetsimages;6
