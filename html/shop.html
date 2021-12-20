@@ -244,8 +244,8 @@
                                 $branchecked = $_GET['brand'];
                                 foreach($branchecked as $rowbrand)
                                 {
-                                    // echo $rowbrand;
-                                    $products = "SELECT * FROM products WHERE brand_name IN ($rowbrand)";
+                                    //echo $rowbrand;
+                                    $products = "SELECT * FROM products WHERE brand_id IN ($rowbrand)";
                                     $products_run = mysqli_query($con, $products);
                                     if(mysqli_num_rows($products_run) > 0)
                                     {
