@@ -42,7 +42,7 @@
   font-family: 'Bahnschrift';
   width: 95%;
   display: block;
-  margin: 10px auto;
+  margin: 5px auto;
   text-align: center;
   padding: 5px;
   border-radius: 4px;
@@ -53,7 +53,7 @@
   width: 80%;
   text-align: center;
   padding: 10px;
-  margin: 20px auto;
+  margin: 10px auto;
   display: block;
   border-radius: 10px;
   transition: 300ms;
@@ -80,7 +80,7 @@
 }
 
 .avatar {
-  width: 20%;
+  width: 12%;
 }
 
 .button{
