@@ -23,7 +23,7 @@
                            <?php
                                $con = mysqli_connect("localhost","root","","ludomo");
 
-                               $brand_query = "SELECT * FROM brands";
+                               $brand_query = "SELECT * FROM brands_list";
                                $brand_query_run  = mysqli_query($con, $brand_query);
 
                                if(mysqli_num_rows($brand_query_run) > 0)
