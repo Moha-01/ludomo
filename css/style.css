@@ -13,15 +13,16 @@
 
 
 #home{
-font-family: 'Anton';
-font-size: 30px;
-text-align: center;
-color: white;
-letter-spacing: 5px;
-background-image: url("../assets/images/home_banner.gif");
-background-repeat: no-repeat;
-background-position: center;
-height: 700px;
+  position: relative;
+  font-family: 'Anton';
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  letter-spacing: 5px;
+  background-image: url("../assets/images/home_banner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px;
 }
 
 .img_container{
@@ -172,10 +173,12 @@ transition-timing-function: ease-in;
   color: white;
   font-family: 'Anton';
   font-size: 22px;
+  text-decoration:none;
 }
 
 .navigation li a:last-child{
   padding-right: 0px;
+
 }
 
 .navigation li{
@@ -188,19 +191,19 @@ transition-timing-function: ease-in;
 
 
 footer{
-  position: absolute;
+  position: relative;
   bottom: 0;
+  margin-bottom: 0;
   width: 100%;
   background: #000;
-  min-height: 100px;
-  padding: 20px 50px;
+  padding: 5px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-footer .social_icon, footer .menu{
+footer .menu{
   position: relative;
   display: flex;
   justify-content: center;
@@ -209,22 +212,9 @@ footer .social_icon, footer .menu{
   flex-wrap: wrap;
 }
 
-footer .social_icon li, footer .menu li{
+footer .menu li{
   list-style: none;
 }
-
-footer .social_icon li a{
-  font-size: 2em;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-}
-
-footer .social_icon li a:hover{
-  transform: translateY(-10px);
-}
-
 
 footer .menu li a{
   font-size: 1.2em;

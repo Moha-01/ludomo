@@ -1,1 +1,149 @@
-test
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h4>Enjoy Shopping our Games</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter List  -->
+            <div class="col-md-3">
+                <form action="" method="GET">
+                    <div class="card shadow mt-3">
+                        <div class="card-header">
+                            <h5>Filter
+                                <button type="submit" class="btn btn-primary btn-sm float-end">Apply</button>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                           <h6>Brands List</h6>
+                           <hr>
+                           <?php
+                               $con = mysqli_connect("localhost","root","","ludomo");
+
+                               $brand_query = "SELECT * FROM brands";
+                               $brand_query_run  = mysqli_query($con, $brand_query);
+
+                               if(mysqli_num_rows($brand_query_run) > 0)
+                               {
+                                   foreach($brand_query_run as $brandlist)
+                                   {
+                                       $checked = [];
+                                       if(isset($_GET['brand']))
+                                       {
+                                           $checked = $_GET['brand'];
+                                       }
+                                       ?>
+                                           <div>
+                                               <input type="checkbox" name="brand[]" value="<?= $brandlist['id']; ?>"
+                                                   <?php if(in_array($brandlist['id'], $checked)){ echo "checked"; } ?>
+                                                />
+                                                <?= $brandlist['brand']; ?>
+                                           </div>
+                                       <?php
+                                   }
+                               }
+                               else
+                               {
+                                   echo "No Brands Found";
+                               }
+                           ?>
+                       </div>
+
+                       <div class="card-body">
+                          <h6>FSK List</h6>
+                          <hr>
+                          <?php
+                              $con = mysqli_connect("localhost","root","","ludomo");
+
+                              $fsk_query = "SELECT * FROM fsk_list";
+                              $fsk_query_run  = mysqli_query($con, $fsk_query);
+
+                              if(mysqli_num_rows($fsk_query_run) > 0)
+                              {
+                                  foreach($fsk_query_run as $fsklist)
+                                  {
+                                      $checked = [];
+                                      if(isset($_GET['fsk']))
+                                      {
+                                          $checked = $_GET['fsk'];
+                                      }
+                                      ?>
+                                          <div>
+                                              <input type="checkbox" name="fsk[]" value="<?= $fsklist['id']; ?>"
+                                                  <?php if(in_array($fsklist['id'], $checked)){ echo "checked"; } ?>
+                                               />
+                                              FSK <?= $fsklist['fsk']; ?>
+                                          </div>
+                                      <?php
+                                  }
+                              }
+                              else
+                              {
+                                  echo "No FSKs Found";
+                              }
+                          ?>
+                      </div>
+
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Brand Items - Products -->
+            <!-- <div class="col-md-9 mt-3">
+                <div class="card ">
+                    <div class="card-body row">
+                        <?php
+                            if(isset($_GET['brands']))
+                            {
+                                $branchecked = [];
+                                $branchecked = $_GET['brands'];
+                                foreach($branchecked as $rowbrand)
+                                {
+                                    // echo $rowbrand;
+                                    $products = "SELECT * FROM a_products WHERE brand_id IN ($rowbrand)";
+                                    $products_run = mysqli_query($con, $products);
+                                    if(mysqli_num_rows($products_run) > 0)
+                                    {
+                                        foreach($products_run as $proditems) :
+                                            ?>
+                                                <div class="col-md-4 mt-3">
+                                                    <div class="border p-2">
+                                                        <h6><?= $proditems['name']; ?></h6>
+                                                    </div>
+                                                </div>
+                                            <?php
+                                        endforeach;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                $products = "SELECT * FROM a_products";
+                                $products_run = mysqli_query($con, $products);
+                                if(mysqli_num_rows($products_run) > 0)
+                                {
+                                    foreach($products_run as $proditems) :
+                                        ?>
+                                            <div class="col-md-4 mt-3">
+                                                <div class="border p-2">
+                                                    <h6><?= $proditems['name']; ?></h6>
+                                                </div>
+                                            </div>
+                                        <?php
+                                    endforeach;
+                                }
+                                else
+                                {
+                                    echo "No Items Found";
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
