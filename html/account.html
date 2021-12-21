@@ -1,13 +1,23 @@
+<div class="account_form_small">
 <?php
-if(isset($_COOKIE["username"])){
-  echo "<label class='inline_text'>A C C O U N T</label>";
-  echo "<label id='acc_text'>Currently logged in as: " .$_COOKIE["username"]."</label>";
-  echo "<form method='post'><button class='inline_button' type='submit' name='btnLogout'>Logout</button></form>";
-  echo "</td>";
+
+  echo "<div class='img_container'><img src='../assets/images/avatar_img.png' alt='Avatar' class='avatar'></div>";
+  echo "<strong>Username:  </strong><label id='acc_text_info'>" .$_COOKIE["username"]."</label><br>";
+  echo "<strong>Email:  </strong><label id='acc_text_info'>" .$_COOKIE["email"]."</label>";
+
+  if(isset($_COOKIE["privalage"])){
+    if($_COOKIE["privalage"] == 10){
+      echo "<br><strong style='color:red'>A D M I N</strong>";
+    }
+  }
+
+  echo "<form method='post'><button class='inline_button_small' type='submit' name='btnLogout'>Logout</button></form>";
 
   if(isset($_POST['btnLogout'])){
     setcookie("username", "username", time() - 1, "/");
+    setcookie("email", "email", time() - 1, "/");
     setcookie("privalage", "privalage", time() - 1, "/");
     header("Refresh:0");
   }
-}
+?>
+</div>

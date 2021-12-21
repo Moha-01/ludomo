@@ -60,8 +60,15 @@ object-fit: cover;
   font-family: 'Bahnschrift';
   width: 95%;
   text-align: center;
-
 }
+
+#acc_text_big{
+  font-family: 'Bahnschrift';
+  width: 95%;
+  font-size: 20px;
+  text-align: center;
+}
+
 .inline_button{
   font-family: 'Bahnschrift';
   width: 80%;
@@ -72,6 +79,18 @@ object-fit: cover;
   border-radius: 10px;
   transition: 300ms;
   transition-delay: 10ms;
+  transition-timing-function: ease-in-out;
+}
+
+.inline_button_small{
+  font-family: 'Bahnschrift';
+  width: 20%;
+  padding: 10px;
+  margin: 10px auto;
+  float: right;
+  display: block;
+  border-radius: 4px;
+  transition: 100ms;
   transition-timing-function: ease-in-out;
 }
 
@@ -86,6 +105,20 @@ object-fit: cover;
   border-width: 8px;
   border-style: double;
   border-radius: 10px;
+}
+
+.account_form_small{
+  padding: 20px;
+  margin: 2% 20% 20%;
+  border: solid black;
+  border-width: 8px;
+  border-style: double;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.account_form_small strong{
+  margin: 5% 0% 0% 0%;
 }
 
 .inline_button:hover{
@@ -310,6 +343,11 @@ footer .wave#wave4{
   }
 }
 
+
+#account_header{
+  text-align: center;
+  margin: 5px auto;
+}
 
 /*Bootstrap for Login/Register*/
 
