@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Anton";
-  src: url('../assets/fonts/Anton-Regular.ttf');
+  src: url('http://localhost/ludomo/assets/fonts/Anton-Regular.ttf');
 }
 
 *{
@@ -9,6 +9,12 @@
   list-style: none;
   box-sizing: border-box;
   text-decoration: none;
+}
+
+body{
+  background-image: url("http://localhost/ludomo/assets/images/bg.gif");
+  background-position: center;
+  background-size: contain;
 }
 
 
@@ -445,9 +451,10 @@ caption{
 }
 
 .product_card .title{
+  font-size: 20px;
   text-overflow: ellipsis;
-overflow: hidden;
-white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .product_card button {
