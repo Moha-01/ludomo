@@ -1,16 +1,15 @@
 <?php
-setcookie('Warenkorb','1,3,8,9',time()+3600)
-?>
-<?php
-$IDs = $_COOKIE['Warenkorb']
-?>
-<?php
+//setcookie('Warenkorb','1,3,8,9',time()+3600);
+if (isset($_COOKIE["Warenkorb"])){
+$IDs = $_COOKIE["Warenkorb"];
 $verbindung = new PDO('mysql:host=localhost;dbname=ludomo', "root", "");
 $sqlBefehl = "SELECT * FROM `products` WHERE `ID` IN (". $IDs . ")";
 $abfrage = $verbindung->prepare($sqlBefehl);
-$abfrage-> execute();
+try {
+  $abfrage-> execute();
+} catch (\Exception $e) {}
 $Wahrenkorb_Tab = $abfrage->fetchAll();
-$verbindung = null
+$verbindung = null;}
 ?>
 <div class="container">
         <div class="row">
@@ -24,7 +23,8 @@ $verbindung = null
             <div class="col-md-9 mt-3">
                 <div class="card ">
                   <?php
-                  foreach($Wahrenkorb_Tab as $Wahrenkorb) :
+                  if (isset($Wahrenkorb_Tab)){
+                  foreach($Wahrenkorb_Tab as $Wahrenkorb):
                   ?>
                     <div class="card-body row">
                             <table>
@@ -36,19 +36,22 @@ $verbindung = null
                         </table>
                     </div>
                     <?php
-                    endforeach;
+                    endforeach;}
+                    else{
+                      ?>
+                      <div class="card-body row">
+                        <br><br><br><br><br><br><br><br><br><br>
+                      </div>
+                      <?php
+                    }
                     ?>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-header">
-                      <form method="_GET">
+                      <form action="http://localhost/ludomo/php/showwindow.php">
                         <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
-                        <?php
-                       if(isset($_GET['Checkout'])){
-                        setcookie('Warenkorb','',time()-1);}
-                        ?>
                       </form>
                     </div>
                 </div>

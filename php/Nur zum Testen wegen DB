@@ -11,6 +11,20 @@ $verbindung = null
 
 
 
+
+$sqlBefehl = 'select * from `products` WHERE `ID` > 3';
+$server = 'mysql:host=localhost;dbname=ludomo';
+$verbindung = new PDO($server, "root", "");
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
+$ergebnismenge = $abfrage->fetchAll();
+$verbindung = null
+
+foreach ($abfrage as $zeile) {
+  // code...
+}
+
+
 //LOGIN
 //SELECT * FROM `user_tabelle` WHERE ( `email` = l_name_email AND `password` = l_password ) or ( `username` = l_name_email AND `password` = l_password )
 //User Exist
@@ -68,22 +82,13 @@ $_COOKIE['count']
 
  ?>
 
-
-
-
-//Shop items
-//echo $rowbrand;
-$products = "SELECT * FROM products WHERE brand_id IN ($rowbrand)";
-$products_run = mysqli_query($con, $products);
-if(mysqli_num_rows($products_run) > 0)
-{
-    foreach($products_run as $proditems) :
-        ?>
-            <div class="col-md-4 mt-3">
-                <div class="border p-2">
-                    <h6><?= $proditems['name']; ?></h6>
-                </div>
-            </div>
-        <?php
-    endforeach;
+<?php
+if (isset($_COOKIE["Warenkorb"])){
+$id = $_COOKIE["Warenkorb"];
+  $id = $id . ',' . $proditems['ID'];
+setcookie('Warenkorb',$id,time()+3600);
+}else {
+setcookie('Warenkorb',$proditems['ID'],time()+3600);
 }
+
+?>
