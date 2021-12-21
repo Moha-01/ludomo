@@ -94,6 +94,13 @@ object-fit: cover;
   transition-timing-function: ease-in-out;
 }
 
+caption{
+  text-align: center;
+  font-family: 'Bahnschrift';
+  margin: 5px;
+  font-style: italic;
+}
+
 .account_table_container{
   margin: 0px auto;
 }

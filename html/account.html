@@ -13,6 +13,32 @@
 
   echo "<form method='post'><button class='inline_button_small' type='submit' name='btnLogout'>Logout</button></form>";
 
+  if(isset($_COOKIE["privalage"])){
+    if($_COOKIE["privalage"] == 10){
+        $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
+        $sql = "SELECT * FROM user_tabelle";
+        $result  = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+          echo "<table style='width:100%'><caption>Usertable</caption><thead><tr><th>Username</th><th>Email</th><th>Privilege</th><th>Delete</th></tr></thead><tbody>";
+          while($row = mysqli_fetch_assoc($result)) {
+            echo "<tr><td>".$row['username']."</td><td>".$row['email']."</td>";
+            if($row['privalage'] == 10){
+              echo "<td style='color:red'>ADMIN</td>";
+            }
+            else{
+              echo "<td style='color:green'>USER</td>";
+
+            }
+            echo "<td><form method='post'><button type='submit' name='btnDelete'>Delete</button></form></td></tr>";
+          }
+        }
+        echo "</tbody></table>";
+        mysqli_close($conn);
+    }
+  }
+
+
   if(isset($_POST['btnLogout'])){
     setcookie("username", "username", time() - 1, "/");
     setcookie("email", "email", time() - 1, "/");
