@@ -101,6 +101,12 @@ caption{
   font-style: italic;
 }
 
+.tablebutton
+{
+  margin: 3px;
+  padding: 5px;
+}
+
 .account_table_container{
   margin: 0px auto;
 }

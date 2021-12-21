@@ -30,7 +30,7 @@
               echo "<td style='color:green'>USER</td>";
 
             }
-            echo "<td><form method='post'><button type='submit' name='btnDelete'>Delete</button></form></td></tr>";
+            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td></tr>";
           }
         }
         echo "</tbody></table>";
@@ -44,6 +44,16 @@
     setcookie("email", "email", time() - 1, "/");
     setcookie("privalage", "privalage", time() - 1, "/");
     header("Refresh:0");
+  }
+
+  if(isset($_GET['btnDelete'])){
+    $btnNmbr = $_GET['btnDelete'];
+
+    $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
+    $sql = "DELETE * FROM user_tabelle WHERE ID=".$btnNmbr;
+    echo $sql;
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
   }
 ?>
 </div>
