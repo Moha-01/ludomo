@@ -89,6 +89,41 @@
                       </div>
 
                       <div class="card-body">
+                         <h6>Platform</h6>
+                         <hr>
+                         <?php
+                             $con = mysqli_connect("localhost","root","","ludomo");
+
+                             $platform_query = "SELECT * FROM platform";
+                             $platform_query_run  = mysqli_query($con, $platform_query);
+
+                             if(mysqli_num_rows($platform_query_run) > 0)
+                             {
+                                 foreach($platform_query_run as $platformlist)
+                                 {
+                                     $checked = [];
+                                     if(isset($_GET['platform']))
+                                     {
+                                         $checked = $_GET['platform'];
+                                     }
+                                     ?>
+                                         <div>
+                                             <input type="checkbox" name="platform[]" value="<?= $platformlist['id']; ?>"
+                                                 <?php if(in_array($platformlist['id'], $checked)){ echo "checked"; } ?>
+                                              />
+                                              <?= $platformlist['platform']; ?>
+                                         </div>
+                                     <?php
+                                 }
+                             }
+                             else
+                             {
+                                 echo "No platform Found";
+                             }
+                         ?>
+                     </div>
+
+                      <div class="card-body">
                          <h6>Genre List</h6>
                          <hr>
                          <?php
@@ -181,7 +216,7 @@
                                               <input type="checkbox" name="preise[]" value="<?= $preiselist['id']; ?>"
                                                   <?php if(in_array($preiselist['id'], $checked)){ echo "checked"; } ?>
                                                />
-                                               <?= $preiselist['preise']; ?>€
+                                               &lt <?= $preiselist['preise']; ?> €
                                           </div>
                                       <?php
                                   }
@@ -238,28 +273,169 @@
                 <div class="card ">
                     <div class="card-body row">
                         <?php
-                            if(isset($_GET['brand']))
+                            $number_of_filter_checkboxes = 0;
+                            $products_items = array();
+                            $output_products = [];
+
+                            if(isset($_GET['brand']) || isset($_GET['fsk']) || isset($_GET['genre']) || isset($_GET['mode']) || isset($_GET['platform']) || isset($_GET['preise']) || isset($_GET['price']))
                             {
-                                $branchecked = [];
-                                $branchecked = $_GET['brand'];
-                                foreach($branchecked as $rowbrand)
-                                {
-                                    //echo $rowbrand;
-                                    $products = "SELECT * FROM products WHERE brand_id IN ($rowbrand)";
-                                    $products_run = mysqli_query($con, $products);
-                                    if(mysqli_num_rows($products_run) > 0)
-                                    {
-                                        foreach($products_run as $proditems) :
-                                            ?>
-                                                <div class="col-md-4 mt-3">
-                                                    <div class="border p-2">
-                                                        <h6><?= $proditems['name']; ?></h6>
-                                                    </div>
-                                                </div>
-                                            <?php
-                                        endforeach;
-                                    }
+                                if(isset($_GET['brand'])){
+                                  $number_of_filter_checkboxes++;
+                                  $branchecked = [];
+                                  $branchecked = $_GET['brand'];
+
+                                  foreach($branchecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT products.* FROM products WHERE products.brand_id = ($row)";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
                                 }
+                                if(isset($_GET['fsk'])){
+                                  $number_of_filter_checkboxes++;
+                                  $fskchecked = [];
+                                  $fskchecked = $_GET['fsk'];
+
+                                  foreach($fskchecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT * FROM products WHERE fsk_id IN ($row)";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
+                                }
+                                if(isset($_GET['genre'])){
+                                  $number_of_filter_checkboxes++;
+                                  $genrechecked = [];
+                                  $genrechecked = $_GET['genre'];
+
+                                  foreach($genrechecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT * FROM products WHERE genre_id IN ($row)";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
+                                }
+                                if(isset($_GET['mode'])){
+                                  $number_of_filter_checkboxes++;
+                                  $modechecked = [];
+                                  $modechecked = $_GET['mode'];
+
+                                  foreach($modechecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT * FROM products WHERE S_M_id IN ($row)";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
+                                }
+                                if(isset($_GET['platform'])){
+                                  $number_of_filter_checkboxes++;
+                                  $platformchecked = [];
+                                  $platformchecked = $_GET['platform'];
+
+                                  foreach($platformchecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT products.* FROM products INNER JOIN platform ON platform.id = ($row) WHERE products.platform_id = platform.id";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
+                                }
+                                if(isset($_GET['preise'])){
+                                  $number_of_filter_checkboxes++;
+                                  $preisechecked = [];
+                                  $preisechecked = $_GET['preise'];
+
+                                  foreach($preisechecked as $row)
+                                  {
+                                      //echo $row;
+                                      $products = "SELECT products.* FROM products INNER JOIN preise_list ON preise_list.id = ($row) WHERE products.endpreis <= preise_list.preise";
+                                      $products_run = mysqli_query($con, $products);
+                                      if(mysqli_num_rows($products_run) > 0)
+                                      {
+                                          foreach($products_run as $proditems) :
+                                              array_push($products_items, $proditems['name']);
+                                          endforeach;
+                                      }
+                                  }
+
+                                }
+                                //Prise Sortierung
+                                if(isset($_GET['price'])){
+                                  $number_of_filter_checkboxes++;
+                                  $pricechecked = [];
+                                  $pricechecked = $_GET['price'];
+                                }
+
+                                $unique_items = array_unique($products_items);
+                                $duplicated_items = [];
+
+                                $counter = 0;
+                                $counter_arr = [];
+
+                                foreach($unique_items as $current_united_item){
+                                  foreach($products_items as $current_product_item){
+                                    if($current_united_item == $current_product_item){
+                                      $counter++;
+                                    }
+                                  }
+                                  if($counter == $number_of_filter_checkboxes){
+                                    array_push($duplicated_items, $current_united_item);
+                                  }
+                                  $counter = 0;
+                                }
+                                //print_r($duplicated_items);
+
+                                foreach($duplicated_items as $current){
+                                  $products = "SELECT products.* FROM products WHERE products.name = ('$current')";
+                                  $products_run = mysqli_query($con, $products);
+                                  if(mysqli_num_rows($products_run) > 0)
+                                  {
+                                      foreach($products_run as $proditems) :
+                                          ?>
+                                              <div class="col-md-4 mt-3">
+                                                  <div class="border p-2">
+                                                      <h6><?= $proditems['name']; ?></h6>
+                                                  </div>
+                                              </div>
+                                          <?php
+                                      endforeach;
+                                  }
+                                  else
+                                  {
+                                      echo "No Items Found";
+                                  }
+                                }
+
+
                             }
                             else
                             {
