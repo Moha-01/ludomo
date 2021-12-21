@@ -454,12 +454,12 @@ white-space: nowrap;
   border: none;
   outline: 0;
   padding: 12px;
-  color: white;
-  background-color: #000;
+  border: solid;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
   font-size: 18px;
+  margin: 5px;
 }
 
 .product_card button:hover {

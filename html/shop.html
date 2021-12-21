@@ -279,6 +279,31 @@
 
                             if(isset($_GET['brand']) || isset($_GET['fsk']) || isset($_GET['genre']) || isset($_GET['mode']) || isset($_GET['platform']) || isset($_GET['preise']) || isset($_GET['price']))
                             {
+                                //Prise Sortierung
+                                if(isset($_GET['price'])){
+
+                                  $number_of_filter_checkboxes++;
+                                  $pricechecked = end($_GET['price']);
+
+                                  //echo $row;
+                                  $products = "SELECT * FROM `products`";
+
+                                  if($pricechecked == 1){
+                                    $products = "SELECT * FROM `products` ORDER BY endpreis";
+                                  }
+
+                                  if($pricechecked == 2){
+                                    $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
+                                  }
+                                  $products_run = mysqli_query($con, $products);
+                                  if(mysqli_num_rows($products_run) > 0)
+                                  {
+                                      foreach($products_run as $proditems) :
+                                          array_push($products_items, $proditems['name']);
+                                      endforeach;
+                                  }
+
+                                }
                                 if(isset($_GET['brand'])){
                                   $number_of_filter_checkboxes++;
                                   $branchecked = [];
@@ -388,13 +413,6 @@
                                   }
 
                                 }
-                                //Prise Sortierung
-                                if(isset($_GET['price'])){
-                                  $number_of_filter_checkboxes++;
-                                  $pricechecked = [];
-                                  $pricechecked = $_GET['price'];
-                                }
-
                                 $unique_items = array_unique($products_items);
                                 $duplicated_items = [];
 
@@ -447,6 +465,22 @@
                             else
                             {
                                 $products = "SELECT * FROM products";
+                                //Prise Sortierung
+                                if(isset($_GET['price'])){
+
+                                  $number_of_filter_checkboxes++;
+                                  $pricechecked = end($_GET['price']);
+
+
+                                  if($pricechecked == 1){
+                                    $products = "SELECT * FROM `products` ORDER BY endpreis";
+                                  }
+
+                                  if($pricechecked == 2){
+                                    $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
+                                  }
+                                }
+
                                 $products_run = mysqli_query($con, $products);
                                 if(mysqli_num_rows($products_run) > 0)
                                 {
