@@ -30,7 +30,7 @@ font-size: 50px;
 text-align: center;
 color: white;
 letter-spacing: 10px;
-background-image: url("../assets/images/home_banner.gif");
+background-image: url("http://localhost/ludomo/assets/images/home_banner.gif");
 background-repeat: no-repeat;
 background-position: center;
 width: 100%;
@@ -310,7 +310,7 @@ footer .wave{
   left: 0;
   width: 100%;
   height: 100px;
-  background:url("../assets/images/wave.png");
+  background:url("http://localhost/ludomo/assets/images/wave.png");
   background-size: 3000px 100px;
 }
 
