@@ -351,6 +351,14 @@ footer .wave#wave4{
 
 /*Bootstrap for Login/Register*/
 
+caption{
+  text-align: center;
+  font-family: 'Bahnschrift';
+  margin: 5px;
+  font-style: italic;
+}
+
+
 .product_card {
     width: 400px;
     border: none
