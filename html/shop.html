@@ -419,15 +419,22 @@
                                   $products_run = mysqli_query($con, $products);
                                   if(mysqli_num_rows($products_run) > 0)
                                   {
-                                      foreach($products_run as $proditems) :
-                                          ?>
-                                              <div class="col-md-4 mt-3">
-                                                  <div class="border p-2">
-                                                      <h6><?= $proditems['name']; ?></h6>
-                                                  </div>
-                                              </div>
-                                          <?php
-                                      endforeach;
+                                    foreach($products_run as $proditems) :
+                                        ?>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="border p-2">
+                                              <div class="product_card">
+                                                <img src="<?= $proditems['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:100%">
+                                                <p class="title"><?= $proditems['name'] ?></p>
+                                                <p class="price"><?= $proditems['endpreis'] ?>€</p>
+                                                <form action="index.html" method="post">
+                                                  <button type="button" class="btn btn-outline-success">Add to Cart</button>
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    endforeach;
                                   }
                                   else
                                   {
@@ -445,11 +452,18 @@
                                 {
                                     foreach($products_run as $proditems) :
                                         ?>
-                                            <div class="col-md-4 mt-3">
-                                                <div class="border p-2">
-                                                    <h6><?= $proditems['name']; ?></h6>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="border p-2">
+                                              <div class="product_card">
+                                                <img src="<?= $proditems['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:100%">
+                                                <p class="title"><?= $proditems['name'] ?></p>
+                                                <p class="price"><?= $proditems['endpreis'] ?>€</p>
+                                                <form action="index.html" method="post">
+                                                  <button type="button" class="btn btn-outline-success">Add to Cart</button>
+                                                </form>
                                                 </div>
                                             </div>
+                                        </div>
                                         <?php
                                     endforeach;
                                 }
