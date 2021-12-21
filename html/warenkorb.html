@@ -11,7 +11,6 @@ $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage-> execute();
 $Wahrenkorb_Tab = $abfrage->fetchAll();
 $verbindung = null
-
 ?>
 <div class="container">
         <div class="row">
@@ -44,13 +43,13 @@ $verbindung = null
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-header">
-                      <form method="post">
+                      <form method="_GET">
                         <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
-                      </form>
                         <?php
-                       if(array_key_exists('Checkout', $_POST)) {
+                       if(isset($_GET['Checkout'])){
                         setcookie('Warenkorb','',time()-1);}
                         ?>
+                      </form>
                     </div>
                 </div>
             </div>
