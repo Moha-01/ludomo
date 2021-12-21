@@ -62,6 +62,9 @@ $abfrage->execute();
 $sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/price_sort.csv' INTO TABLE price_sort FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
+$sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/platform.csv' INTO TABLE platform FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
+$abfrage = $verbindung->prepare($sqlBefehl);
+$abfrage->execute();
 }
 $verbindung=null;
  ?>
