@@ -44,11 +44,14 @@ object-fit: cover;
 }
 
 .account_td{
+
   padding: 10px;
+
 }
 
 .form_container{
   position: relative;
+
 }
 
 .inline_text{
@@ -115,15 +118,18 @@ caption{
 
 .account_table_container{
   margin: 0px auto;
+  width: 100%;
 }
 
 .account_form{
+  background-color: #fff;
   padding: 20px;
   margin: 10px auto;
   border: solid black;
   border-width: 8px;
   border-style: double;
   border-radius: 10px;
+  height: 100%;
 }
 
 .account_form_small{

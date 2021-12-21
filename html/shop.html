@@ -216,7 +216,7 @@
                                               <input type="checkbox" name="preise[]" value="<?= $preiselist['id']; ?>"
                                                   <?php if(in_array($preiselist['id'], $checked)){ echo "checked"; } ?>
                                                />
-                                               &lt <?= $preiselist['preise']; ?> €
+                                                less than <?= $preiselist['preise']; ?> €
                                           </div>
                                       <?php
                                   }
@@ -442,9 +442,9 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="border p-2">
                                               <div class="product_card">
-                                                <img src="<?= $proditems['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:100%">
-                                                <p class="title"><?= $proditems['name'] ?></p>
-                                                <p class="price"><?= $proditems['endpreis'] ?>€</p>
+                                                <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" style="width:100%">
+                                                <p class="title"><?= $proditems['name']; ?></p>
+                                                <p class="price"><?= $proditems['endpreis']; ?>€</p>
                                                 <form action="index.html" method="post">
                                                   <button type="button" class="btn btn-outline-success">Add to Cart</button>
                                                 </form>
@@ -489,9 +489,9 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="border p-2">
                                               <div class="product_card">
-                                                <img src="<?= $proditems['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:100%">
-                                                <p class="title"><?= $proditems['name'] ?></p>
-                                                <p class="price"><?= $proditems['endpreis'] ?>€</p>
+                                                <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" style="width:100%">
+                                                <p class="title"><?= $proditems['name']; ?></p>
+                                                <p class="price"><?= $proditems['endpreis']; ?>€</p>
                                                 <form  method="post">
                                                   <button type="button" class="btn btn-outline-success">Add to Cart</button>
                                                 </form>
