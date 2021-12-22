@@ -510,3 +510,32 @@ caption{
 .product_card button:hover {
   opacity: 0.7;
 }
+
+
+
+.cart-container{
+  height: 80vh;
+}
+
+.cart-content{
+  height: 50vh;
+  width: 59vw;
+  background: white;
+  margin-left: 20px;
+}
+
+
+.contact-content{
+  height: 80vh;
+}
+
+.card-header h4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header{
+  width: 60vw;
+  background: white;
+}

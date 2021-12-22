@@ -1,514 +1,519 @@
-<div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mt-3">
-                    <div class="card-header">
-                        <h4>Enjoy Shopping our Games</h4>
-                    </div>
-                </div>
-            </div>
+<head>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.css">
+</head>
+<div class="shop-container">
+  <div class="shop-titlebar">
+    <h1>Enjoy Shopping our Games</h1>
+  </div>
+  <div class="shop-filter">
+    <form method="GET">
+      <div class="shop-filter-top">
+        <h1>Filter</h1>
+        <button type="submit" name="button">Apply</button>
+      </div>
+      <div class="shop-filter-content">
+                <div class="shop-filter-body">
+                   <h6>Price Sort</h6>
+                   <hr>
+                   <?php
+                       $con = mysqli_connect("localhost","root","","ludomo");
 
-            <!-- Filter List  -->
-            <div class="col-md-3">
-                <form method="GET">
-                    <div class="card shadow mt-3">
-                        <div class="card-header">
-                            <h5>Filter
-                                <button type="submit" class="btn btn-primary btn-sm float-end">Apply</button>
-                            </h5>
-                        </div>
+                       $price_query = "SELECT * FROM price_sort";
+                       $price_query_run  = mysqli_query($con, $price_query);
 
-                        <div class="card-body">
-                           <h6>Price Sort</h6>
-                           <hr>
-                           <?php
-                               $con = mysqli_connect("localhost","root","","ludomo");
-
-                               $price_query = "SELECT * FROM price_sort";
-                               $price_query_run  = mysqli_query($con, $price_query);
-
-                               if(mysqli_num_rows($price_query_run) > 0)
+                       if(mysqli_num_rows($price_query_run) > 0)
+                       {
+                           foreach($price_query_run as $pricelist)
+                           {
+                               $checked = [];
+                               if(isset($_GET['price']))
                                {
-                                   foreach($price_query_run as $pricelist)
-                                   {
-                                       $checked = [];
-                                       if(isset($_GET['price']))
-                                       {
-                                           $checked = $_GET['price'];
-                                       }
-                                       ?>
-                                           <div>
-                                               <input type="checkbox" name="price[]" value="<?= $pricelist['id']; ?>"
-                                                   <?php if(in_array($pricelist['id'], $checked)){ echo "checked"; } ?>
-                                                />
-                                                <?= $pricelist['price']; ?>
-                                           </div>
-                                       <?php
-                                   }
+                                   $checked = $_GET['price'];
                                }
-                               else
+                               ?>
+                                   <div>
+                                       <input type="checkbox" name="price[]" value="<?= $pricelist['id']; ?>"
+                                           <?php if(in_array($pricelist['id'], $checked)){ echo "checked"; } ?>
+                                        />
+                                        <?= $pricelist['price']; ?>
+                                   </div>
+                               <?php
+                           }
+                       }
+                       else
+                       {
+                           echo "No prices Found";
+                       }
+                   ?>
+               </div>
+
+               <div class="shop-filter-body">
+                  <h6>Game Mode</h6>
+                  <hr>
+                  <?php
+                      $con = mysqli_connect("localhost","root","","ludomo");
+
+                      $mode_query = "SELECT * FROM mode_list";
+                      $mode_query_run  = mysqli_query($con, $mode_query);
+
+                      if(mysqli_num_rows($mode_query_run) > 0)
+                      {
+                          foreach($mode_query_run as $modelist)
+                          {
+                              $checked = [];
+                              if(isset($_GET['mode']))
+                              {
+                                  $checked = $_GET['mode'];
+                              }
+                              ?>
+                                  <div>
+                                      <input type="checkbox" name="mode[]" value="<?= $modelist['id']; ?>"
+                                          <?php if(in_array($modelist['id'], $checked)){ echo "checked"; } ?>
+                                       />
+                                       <?= $modelist['mode']; ?>
+                                  </div>
+                              <?php
+                          }
+                      }
+                      else
+                      {
+                          echo "No mode Found";
+                      }
+                  ?>
+              </div>
+
+              <div class="shop-filter-body">
+                 <h6>Platform</h6>
+                 <hr>
+                 <?php
+                     $con = mysqli_connect("localhost","root","","ludomo");
+
+                     $platform_query = "SELECT * FROM platform";
+                     $platform_query_run  = mysqli_query($con, $platform_query);
+
+                     if(mysqli_num_rows($platform_query_run) > 0)
+                     {
+                         foreach($platform_query_run as $platformlist)
+                         {
+                             $checked = [];
+                             if(isset($_GET['platform']))
+                             {
+                                 $checked = $_GET['platform'];
+                             }
+                             ?>
+                                 <div>
+                                     <input type="checkbox" name="platform[]" value="<?= $platformlist['id']; ?>"
+                                         <?php if(in_array($platformlist['id'], $checked)){ echo "checked"; } ?>
+                                      />
+                                      <?= $platformlist['platform']; ?>
+                                 </div>
+                             <?php
+                         }
+                     }
+                     else
+                     {
+                         echo "No platform Found";
+                     }
+                 ?>
+             </div>
+
+              <div class="shop-filter-body">
+                 <h6>Genre List</h6>
+                 <hr>
+                 <?php
+                     $con = mysqli_connect("localhost","root","","ludomo");
+
+                     $genre_query = "SELECT * FROM genre_list";
+                     $genre_query_run  = mysqli_query($con, $genre_query);
+
+                     if(mysqli_num_rows($genre_query_run) > 0)
+                     {
+                         foreach($genre_query_run as $genrelist)
+                         {
+                             $checked = [];
+                             if(isset($_GET['genre']))
+                             {
+                                 $checked = $_GET['genre'];
+                             }
+                             ?>
+                                 <div>
+                                     <input type="checkbox" name="genre[]" value="<?= $genrelist['id']; ?>"
+                                         <?php if(in_array($genrelist['id'], $checked)){ echo "checked"; } ?>
+                                      />
+                                      <?= $genrelist['genre']; ?>
+                                 </div>
+                             <?php
+                         }
+                     }
+                     else
+                     {
+                         echo "No Genre Found";
+                     }
+                 ?>
+               </div>
+
+                <div class="shop-filter-body">
+                   <h6>Brands List</h6>
+                   <hr>
+                   <?php
+                       $con = mysqli_connect("localhost","root","","ludomo");
+
+                       $brand_query = "SELECT * FROM brands_list";
+                       $brand_query_run  = mysqli_query($con, $brand_query);
+
+                       if(mysqli_num_rows($brand_query_run) > 0)
+                       {
+                           foreach($brand_query_run as $brandlist)
+                           {
+                               $checked = [];
+                               if(isset($_GET['brand']))
                                {
-                                   echo "No prices Found";
+                                   $checked = $_GET['brand'];
                                }
-                           ?>
-                       </div>
+                               ?>
+                                   <div>
+                                       <input type="checkbox" name="brand[]" value="<?= $brandlist['id']; ?>"
+                                           <?php if(in_array($brandlist['id'], $checked)){ echo "checked"; } ?>
+                                        />
+                                        <?= $brandlist['brand']; ?>
+                                   </div>
+                               <?php
+                           }
+                       }
+                       else
+                       {
+                           echo "No Brands Found";
+                       }
+                   ?>
+               </div>
 
-                       <div class="card-body">
-                          <h6>Game Mode</h6>
-                          <hr>
-                          <?php
-                              $con = mysqli_connect("localhost","root","","ludomo");
+               <div class="shop-filter-body">
+                  <h6>Prices List</h6>
+                  <hr>
+                  <?php
+                      $con = mysqli_connect("localhost","root","","ludomo");
 
-                              $mode_query = "SELECT * FROM mode_list";
-                              $mode_query_run  = mysqli_query($con, $mode_query);
+                      $preise_query = "SELECT * FROM preise_list";
+                      $preise_query_run  = mysqli_query($con, $preise_query);
 
-                              if(mysqli_num_rows($mode_query_run) > 0)
+                      if(mysqli_num_rows($preise_query_run) > 0)
+                      {
+                          foreach($preise_query_run as $preiselist)
+                          {
+                              $checked = [];
+                              if(isset($_GET['preise']))
                               {
-                                  foreach($mode_query_run as $modelist)
-                                  {
-                                      $checked = [];
-                                      if(isset($_GET['mode']))
-                                      {
-                                          $checked = $_GET['mode'];
-                                      }
-                                      ?>
-                                          <div>
-                                              <input type="checkbox" name="mode[]" value="<?= $modelist['id']; ?>"
-                                                  <?php if(in_array($modelist['id'], $checked)){ echo "checked"; } ?>
-                                               />
-                                               <?= $modelist['mode']; ?>
-                                          </div>
-                                      <?php
-                                  }
+                                  $checked = $_GET['preise'];
                               }
-                              else
+                              ?>
+                                  <div>
+                                      <input type="checkbox" name="preise[]" value="<?= $preiselist['id']; ?>"
+                                          <?php if(in_array($preiselist['id'], $checked)){ echo "checked"; } ?>
+                                       />
+                                        less than <?= $preiselist['preise']; ?> €
+                                  </div>
+                              <?php
+                          }
+                      }
+                      else
+                      {
+                          echo "No Prices Found";
+                      }
+                  ?>
+              </div>
+               <div class="shop-filter-body">
+                  <h6>FSK List</h6>
+                  <hr>
+                  <?php
+                      $con = mysqli_connect("localhost","root","","ludomo");
+
+                      $fsk_query = "SELECT * FROM fsk_list";
+                      $fsk_query_run  = mysqli_query($con, $fsk_query);
+
+                      if(mysqli_num_rows($fsk_query_run) > 0)
+                      {
+                          foreach($fsk_query_run as $fsklist)
+                          {
+                              $checked = [];
+                              if(isset($_GET['fsk']))
                               {
-                                  echo "No mode Found";
+                                  $checked = $_GET['fsk'];
                               }
-                          ?>
-                      </div>
+                              ?>
+                                  <div>
+                                      <input type="checkbox" name="fsk[]" value="<?= $fsklist['id']; ?>"
+                                          <?php if(in_array($fsklist['id'], $checked)){ echo "checked"; } ?>
+                                       />
+                                      FSK <?= $fsklist['fsk']; ?>
+                                  </div>
+                              <?php
+                          }
+                      }
+                      else
+                      {
+                          echo "No FSKs Found";
+                      }
+                  ?>
+              </div>
+          </div>
+      </form>
+  </div>
 
-                      <div class="card-body">
-                         <h6>Platform</h6>
-                         <hr>
-                         <?php
-                             $con = mysqli_connect("localhost","root","","ludomo");
+  <div class="shop-products">
+    <?php
+        $number_of_filter_checkboxes = 0;
+        $products_items = array();
+        $output_products = [];
 
-                             $platform_query = "SELECT * FROM platform";
-                             $platform_query_run  = mysqli_query($con, $platform_query);
+        if(isset($_GET['brand']) || isset($_GET['fsk']) || isset($_GET['genre']) || isset($_GET['mode']) || isset($_GET['platform']) || isset($_GET['preise']) || isset($_GET['price']))
+        {
+            //Prise Sortierung
+            if(isset($_GET['price'])){
 
-                             if(mysqli_num_rows($platform_query_run) > 0)
-                             {
-                                 foreach($platform_query_run as $platformlist)
-                                 {
-                                     $checked = [];
-                                     if(isset($_GET['platform']))
-                                     {
-                                         $checked = $_GET['platform'];
-                                     }
-                                     ?>
-                                         <div>
-                                             <input type="checkbox" name="platform[]" value="<?= $platformlist['id']; ?>"
-                                                 <?php if(in_array($platformlist['id'], $checked)){ echo "checked"; } ?>
-                                              />
-                                              <?= $platformlist['platform']; ?>
-                                         </div>
-                                     <?php
-                                 }
-                             }
-                             else
-                             {
-                                 echo "No platform Found";
-                             }
-                         ?>
-                     </div>
+              $number_of_filter_checkboxes++;
+              $pricechecked = end($_GET['price']);
 
-                      <div class="card-body">
-                         <h6>Genre List</h6>
-                         <hr>
-                         <?php
-                             $con = mysqli_connect("localhost","root","","ludomo");
+              //echo $row;
+              $products = "SELECT * FROM `products`";
 
-                             $genre_query = "SELECT * FROM genre_list";
-                             $genre_query_run  = mysqli_query($con, $genre_query);
+              if($pricechecked == 1){
+                $products = "SELECT * FROM `products` ORDER BY endpreis";
+              }
 
-                             if(mysqli_num_rows($genre_query_run) > 0)
-                             {
-                                 foreach($genre_query_run as $genrelist)
-                                 {
-                                     $checked = [];
-                                     if(isset($_GET['genre']))
-                                     {
-                                         $checked = $_GET['genre'];
-                                     }
-                                     ?>
-                                         <div>
-                                             <input type="checkbox" name="genre[]" value="<?= $genrelist['id']; ?>"
-                                                 <?php if(in_array($genrelist['id'], $checked)){ echo "checked"; } ?>
-                                              />
-                                              <?= $genrelist['genre']; ?>
-                                         </div>
-                                     <?php
-                                 }
-                             }
-                             else
-                             {
-                                 echo "No Genre Found";
-                             }
-                         ?>
-                       </div>
+              if($pricechecked == 2){
+                $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
+              }
+              $products_run = mysqli_query($con, $products);
+              if(mysqli_num_rows($products_run) > 0)
+              {
+                  foreach($products_run as $proditems) :
+                      array_push($products_items, $proditems['name']);
+                  endforeach;
+              }
 
-                        <div class="card-body">
-                           <h6>Brands List</h6>
-                           <hr>
-                           <?php
-                               $con = mysqli_connect("localhost","root","","ludomo");
+            }
+            if(isset($_GET['brand'])){
+              $number_of_filter_checkboxes++;
+              $branchecked = [];
+              $branchecked = $_GET['brand'];
 
-                               $brand_query = "SELECT * FROM brands_list";
-                               $brand_query_run  = mysqli_query($con, $brand_query);
+              foreach($branchecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT products.* FROM products WHERE products.brand_id = ($row)";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
+            }
+            if(isset($_GET['fsk'])){
+              $number_of_filter_checkboxes++;
+              $fskchecked = [];
+              $fskchecked = $_GET['fsk'];
 
-                               if(mysqli_num_rows($brand_query_run) > 0)
-                               {
-                                   foreach($brand_query_run as $brandlist)
-                                   {
-                                       $checked = [];
-                                       if(isset($_GET['brand']))
-                                       {
-                                           $checked = $_GET['brand'];
-                                       }
-                                       ?>
-                                           <div>
-                                               <input type="checkbox" name="brand[]" value="<?= $brandlist['id']; ?>"
-                                                   <?php if(in_array($brandlist['id'], $checked)){ echo "checked"; } ?>
-                                                />
-                                                <?= $brandlist['brand']; ?>
-                                           </div>
-                                       <?php
-                                   }
-                               }
-                               else
-                               {
-                                   echo "No Brands Found";
-                               }
-                           ?>
-                       </div>
+              foreach($fskchecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT * FROM products WHERE fsk_id IN ($row)";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
+            }
+            if(isset($_GET['genre'])){
+              $number_of_filter_checkboxes++;
+              $genrechecked = [];
+              $genrechecked = $_GET['genre'];
 
-                       <div class="card-body">
-                          <h6>Prices List</h6>
-                          <hr>
-                          <?php
-                              $con = mysqli_connect("localhost","root","","ludomo");
+              foreach($genrechecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT * FROM products WHERE genre_id IN ($row)";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
+            }
+            if(isset($_GET['mode'])){
+              $number_of_filter_checkboxes++;
+              $modechecked = [];
+              $modechecked = $_GET['mode'];
 
-                              $preise_query = "SELECT * FROM preise_list";
-                              $preise_query_run  = mysqli_query($con, $preise_query);
+              foreach($modechecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT * FROM products WHERE S_M_id IN ($row)";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
+            }
+            if(isset($_GET['platform'])){
+              $number_of_filter_checkboxes++;
+              $platformchecked = [];
+              $platformchecked = $_GET['platform'];
 
-                              if(mysqli_num_rows($preise_query_run) > 0)
-                              {
-                                  foreach($preise_query_run as $preiselist)
-                                  {
-                                      $checked = [];
-                                      if(isset($_GET['preise']))
-                                      {
-                                          $checked = $_GET['preise'];
-                                      }
-                                      ?>
-                                          <div>
-                                              <input type="checkbox" name="preise[]" value="<?= $preiselist['id']; ?>"
-                                                  <?php if(in_array($preiselist['id'], $checked)){ echo "checked"; } ?>
-                                               />
-                                                less than <?= $preiselist['preise']; ?> €
-                                          </div>
-                                      <?php
-                                  }
-                              }
-                              else
-                              {
-                                  echo "No Prices Found";
-                              }
-                          ?>
-                      </div>
+              foreach($platformchecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT products.* FROM products INNER JOIN platform ON platform.id = ($row) WHERE products.platform_id = platform.id";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
+            }
+            if(isset($_GET['preise'])){
+              $number_of_filter_checkboxes++;
+              $preisechecked = [];
+              $preisechecked = $_GET['preise'];
 
-                       <div class="card-body">
-                          <h6>FSK List</h6>
-                          <hr>
-                          <?php
-                              $con = mysqli_connect("localhost","root","","ludomo");
+              foreach($preisechecked as $row)
+              {
+                  //echo $row;
+                  $products = "SELECT products.* FROM products INNER JOIN preise_list ON preise_list.id = ($row) WHERE products.endpreis <= preise_list.preise";
+                  $products_run = mysqli_query($con, $products);
+                  if(mysqli_num_rows($products_run) > 0)
+                  {
+                      foreach($products_run as $proditems) :
+                          array_push($products_items, $proditems['name']);
+                      endforeach;
+                  }
+              }
 
-                              $fsk_query = "SELECT * FROM fsk_list";
-                              $fsk_query_run  = mysqli_query($con, $fsk_query);
+            }
+            $unique_items = array_unique($products_items);
+            $duplicated_items = [];
 
-                              if(mysqli_num_rows($fsk_query_run) > 0)
-                              {
-                                  foreach($fsk_query_run as $fsklist)
-                                  {
-                                      $checked = [];
-                                      if(isset($_GET['fsk']))
-                                      {
-                                          $checked = $_GET['fsk'];
-                                      }
-                                      ?>
-                                          <div>
-                                              <input type="checkbox" name="fsk[]" value="<?= $fsklist['id']; ?>"
-                                                  <?php if(in_array($fsklist['id'], $checked)){ echo "checked"; } ?>
-                                               />
-                                              FSK <?= $fsklist['fsk']; ?>
-                                          </div>
-                                      <?php
-                                  }
-                              }
-                              else
-                              {
-                                  echo "No FSKs Found";
-                              }
-                          ?>
-                      </div>
+            $counter = 0;
+            $counter_arr = [];
 
-                    </div>
-                </form>
-            </div>
+            foreach($unique_items as $current_united_item){
+              foreach($products_items as $current_product_item){
+                if($current_united_item == $current_product_item){
+                  $counter++;
+                }
+              }
+              if($counter == $number_of_filter_checkboxes){
+                array_push($duplicated_items, $current_united_item);
+              }
+              $counter = 0;
+            }
+            //print_r($duplicated_items);
 
-
-            <!-- Brand Items - Products -->
-            <div class="col-md-9 mt-3">
-                <div class="card ">
-                    <div class="card-body row">
-                        <?php
-                            $number_of_filter_checkboxes = 0;
-                            $products_items = array();
-                            $output_products = [];
-
-                            if(isset($_GET['brand']) || isset($_GET['fsk']) || isset($_GET['genre']) || isset($_GET['mode']) || isset($_GET['platform']) || isset($_GET['preise']) || isset($_GET['price']))
-                            {
-                                //Prise Sortierung
-                                if(isset($_GET['price'])){
-
-                                  $number_of_filter_checkboxes++;
-                                  $pricechecked = end($_GET['price']);
-
-                                  //echo $row;
-                                  $products = "SELECT * FROM `products`";
-
-                                  if($pricechecked == 1){
-                                    $products = "SELECT * FROM `products` ORDER BY endpreis";
-                                  }
-
-                                  if($pricechecked == 2){
-                                    $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
-                                  }
-                                  $products_run = mysqli_query($con, $products);
-                                  if(mysqli_num_rows($products_run) > 0)
-                                  {
-                                      foreach($products_run as $proditems) :
-                                          array_push($products_items, $proditems['name']);
-                                      endforeach;
-                                  }
-
-                                }
-                                if(isset($_GET['brand'])){
-                                  $number_of_filter_checkboxes++;
-                                  $branchecked = [];
-                                  $branchecked = $_GET['brand'];
-
-                                  foreach($branchecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT products.* FROM products WHERE products.brand_id = ($row)";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-                                }
-                                if(isset($_GET['fsk'])){
-                                  $number_of_filter_checkboxes++;
-                                  $fskchecked = [];
-                                  $fskchecked = $_GET['fsk'];
-
-                                  foreach($fskchecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT * FROM products WHERE fsk_id IN ($row)";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-                                }
-                                if(isset($_GET['genre'])){
-                                  $number_of_filter_checkboxes++;
-                                  $genrechecked = [];
-                                  $genrechecked = $_GET['genre'];
-
-                                  foreach($genrechecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT * FROM products WHERE genre_id IN ($row)";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-                                }
-                                if(isset($_GET['mode'])){
-                                  $number_of_filter_checkboxes++;
-                                  $modechecked = [];
-                                  $modechecked = $_GET['mode'];
-
-                                  foreach($modechecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT * FROM products WHERE S_M_id IN ($row)";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-                                }
-                                if(isset($_GET['platform'])){
-                                  $number_of_filter_checkboxes++;
-                                  $platformchecked = [];
-                                  $platformchecked = $_GET['platform'];
-
-                                  foreach($platformchecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT products.* FROM products INNER JOIN platform ON platform.id = ($row) WHERE products.platform_id = platform.id";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-                                }
-                                if(isset($_GET['preise'])){
-                                  $number_of_filter_checkboxes++;
-                                  $preisechecked = [];
-                                  $preisechecked = $_GET['preise'];
-
-                                  foreach($preisechecked as $row)
-                                  {
-                                      //echo $row;
-                                      $products = "SELECT products.* FROM products INNER JOIN preise_list ON preise_list.id = ($row) WHERE products.endpreis <= preise_list.preise";
-                                      $products_run = mysqli_query($con, $products);
-                                      if(mysqli_num_rows($products_run) > 0)
-                                      {
-                                          foreach($products_run as $proditems) :
-                                              array_push($products_items, $proditems['name']);
-                                          endforeach;
-                                      }
-                                  }
-
-                                }
-                                $unique_items = array_unique($products_items);
-                                $duplicated_items = [];
-
-                                $counter = 0;
-                                $counter_arr = [];
-
-                                foreach($unique_items as $current_united_item){
-                                  foreach($products_items as $current_product_item){
-                                    if($current_united_item == $current_product_item){
-                                      $counter++;
-                                    }
-                                  }
-                                  if($counter == $number_of_filter_checkboxes){
-                                    array_push($duplicated_items, $current_united_item);
-                                  }
-                                  $counter = 0;
-                                }
-                                //print_r($duplicated_items);
-
-                                foreach($duplicated_items as $current){
-                                  $products = "SELECT products.* FROM products WHERE products.name = ('$current')";
-                                  $products_run = mysqli_query($con, $products);
-                                  if(mysqli_num_rows($products_run) > 0)
-                                  {
-                                    foreach($products_run as $proditems) :
-                                        ?>
-                                        <div class="col-md-4 mt-3">
-                                            <div class="border p-2">
-                                              <div class="product_card">
-                                                <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" style="width:100%">
-                                                <p class="title"><?= $proditems['name']; ?></p>
-                                                <p class="price"><?= $proditems['endpreis']; ?>€</p>
-                                                <form action="index.html" method="post">
-                                                  <button type="button" class="btn btn-outline-success">Add to Cart</button>
-                                                </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    endforeach;
-                                  }
-                                  else
-                                  {
-                                      echo "No Items Found";
-                                  }
-                                }
-
-
-                            }
-                            else
-                            {
-                                $products = "SELECT * FROM products";
-                                //Prise Sortierung
-                                if(isset($_GET['price'])){
-
-                                  $number_of_filter_checkboxes++;
-                                  $pricechecked = end($_GET['price']);
-
-
-                                  if($pricechecked == 1){
-                                    $products = "SELECT * FROM `products` ORDER BY endpreis";
-                                  }
-
-                                  if($pricechecked == 2){
-                                    $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
-                                  }
-                                }
-
-                                $products_run = mysqli_query($con, $products);
-                                if(mysqli_num_rows($products_run) > 0)
-                                {
-                                    foreach($products_run as $proditems) :
-                                        ?>
-                                        <div class="col-md-4 mt-3">
-                                            <div class="border p-2">
-                                              <div class="product_card">
-                                                <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" style="width:100%">
-                                                <p class="title"><?= $proditems['name']; ?></p>
-                                                <p class="price"><?= $proditems['endpreis']; ?>€</p>
-                                                <form  method="post">
-                                                  <button type="button" class="btn btn-outline-success">Add to Cart</button>
-                                                </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    endforeach;
-                                }
-                                else
-                                {
-                                    echo "No Items Found";
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
-            </div>
+            foreach($duplicated_items as $current){
+              $products = "SELECT products.* FROM products WHERE products.name = ('$current')";
+              $products_run = mysqli_query($con, $products);
+              if(mysqli_num_rows($products_run) > 0)
+              {
+                foreach($products_run as $proditems) :
+                    ?>
+    <div class="shop-product">
+      <div class="shop-product-head">
+        <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" />
+        <p><?= $proditems['name']; ?></p>
+      </div>
+      <div class="shop-product-foot">
+        <div class="shop-product-price">
+          <p class="shop-price-ovp"><?= $proditems['preis']; ?>€</p>
+          <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
+        <div class="shop-product-foot-btn">
+          <button type="button" name="button" class="shop-add-btn">Add to cart</button>
+          <button type="button" name="button" class="shop-info-btn">Info</button>
+        </div>
+      </div>
     </div>
+        <?php
+        endforeach;
+        }
+        else
+        {
+          echo "No Items Found";
+        }
+        }
+
+
+        }
+        else
+        {
+        $products = "SELECT * FROM products";
+        //Prise Sortierung
+        if(isset($_GET['price'])){
+
+        $number_of_filter_checkboxes++;
+        $pricechecked = end($_GET['price']);
+
+
+        if($pricechecked == 1){
+        $products = "SELECT * FROM `products` ORDER BY endpreis";
+        }
+
+        if($pricechecked == 2){
+        $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
+        }
+        }
+
+        $products_run = mysqli_query($con, $products);
+        if(mysqli_num_rows($products_run) > 0)
+        {
+        foreach($products_run as $proditems) :
+    ?>
+    <div class="shop-product">
+      <div class="shop-product-head">
+        <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" />
+        <p><?= $proditems['name']; ?></p>
+      </div>
+      <div class="shop-product-foot">
+        <div class="shop-product-price">
+          <p class="shop-price-ovp"><?= $proditems['preis']; ?>€</p>
+          <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
+        </div>
+        <div class="shop-product-foot-btn">
+          <button type="button" name="button" class="shop-add-btn">Add to cart</button>
+          <button type="button" name="button" class="shop-info-btn">Info</button>
+        </div>
+      </div>
+    </div>
+      <?php
+      endforeach;
+      }
+      else
+      {
+      echo "No Items Found";
+      }
+      }
+      ?>
+  </div>
+</div>
+<?php
+    if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
+      if($_COOKIE["privalage"] == 10){
+        ?>
+        <div class="shop-floating-btn"><a href="http://localhost/ludomo/php/new_product.php">+</a></div>
+        <?php
+      }
+    }
+
+?>
