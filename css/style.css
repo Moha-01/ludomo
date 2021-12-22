@@ -180,13 +180,15 @@ caption{
 
 .account_form_small{
   background-color: #fff;
+  min-height: 80vh;;
   padding: 20px;
-  margin: 2% 20% 20%;
+  margin: 2% 20% 5%;
   border: solid black;
   border-width: 8px;
   border-style: double;
   border-radius: 10px;
   text-align: center;
+
 }
 
 .account_form_small strong{
@@ -553,4 +555,9 @@ caption{
 .card-header{
   width: 60vw;
   background: white;
+}
+
+
+.form_div_account{
+  margin-left: 0;
 }
