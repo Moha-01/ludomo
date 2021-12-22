@@ -1,6 +1,6 @@
 <?php
 include "../html/head.html";
-include "../html/othersCss.html";
+include "../html/others_css.html";
 include "../html/header.html";
 include "../html/warenkorb.html";
 include "../html/footer.html";

@@ -440,7 +440,25 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button type="button" name="button" class="shop-add-btn">Add to cart</button>
+          <button type="submit" name="add_to_cart" class="shop-add-btn">Add to cart</button>
+
+          <?php
+          if(array_key_exists('add_to_cart', $_POST)) {
+              add2Cart();
+          }
+
+          function add2Cart() {
+              if(isset($_COOKIE['Warenkorb'])){
+                $id = $_COOKIE['Warenkorb'];
+                $id = $id . ',' . $proditems['ID'];
+                setcookie('Warenkorb', $id, time()+3600, "/");
+              }else{
+                setcookie('Warenkorb', $proditems['ID'], time()+3600, "/");
+              }
+          }
+
+          ?>
+
           <button type="button" name="button" class="shop-info-btn">Info</button>
         </div>
       </div>
@@ -491,7 +509,14 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button type="button" name="button" class="shop-add-btn">Add to cart</button>
+          <button type="submit" name="add_to_cart" class="shop-add-btn">Add to cart</button>
+
+
+          <?php
+          if(array_key_exists('add_to_cart', $_POST)) {
+              add2Cart();
+          }
+          ?>
           <button type="button" name="button" class="shop-info-btn">Info</button>
         </div>
       </div>

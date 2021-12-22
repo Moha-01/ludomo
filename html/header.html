@@ -11,7 +11,21 @@
       <li> <a href="http://localhost/ludomo/php/shop.php"> Shop </a> </li>
       <li> <a href="http://localhost/ludomo/php/konto.php"> Account </a> </li>
       <li> <a href="http://localhost/ludomo/php/forms/contact.php"> Contact </a> </li>
-      <li> <a href="http://localhost/ludomo/php/warenkorb.php"> <i class="fas fa-shopping-cart"></i>  </a> </li>
+      <?php
+        $cart_counter = 0;
+        if(isset($_COOKIE['Warenkorb'])){
+          $IDs = $_COOKIE['Warenkorb'];
+
+          $IDs = explode(',', $IDs);
+
+
+          $cart_counter = count($IDs);
+        }else{
+          $cart_counter = 0;
+        }
+
+      ?>
+      <li> <a href="http://localhost/ludomo/php/warenkorb.php"> <i class="fas fa-shopping-cart"></i> (<?= $cart_counter; ?>) </a> </li>
     </ul>
   </div>
 </div>
