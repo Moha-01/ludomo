@@ -52,7 +52,7 @@ $verbindung = null;}
                       <div class="card-header">
                         <form action="http://localhost/ludomo/php/funktionen.php">
                           <?php
-                            if(isset($COOKIE['Warenkorb'])){
+                            if(isset($_COOKIE['Warenkorb'])){
                               ?>
                               <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
                               <?php

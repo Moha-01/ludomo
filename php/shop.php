@@ -1,5 +1,4 @@
 <?php
-
 include "../html/head.html";
 include "../html/header.html";
 include "../html/shop.html";

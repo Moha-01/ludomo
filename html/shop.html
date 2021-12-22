@@ -430,6 +430,9 @@
                 foreach($products_run as $proditems) :
                     ?>
     <div class="shop-product">
+      <div class="shop-product-bage">
+          <p>-<?= $proditems['rabatt']; ?>%</p>
+      </div>
       <div class="shop-product-head">
         <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" />
         <p><?= $proditems['name']; ?></p>
@@ -440,24 +443,7 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button type="submit" name="add_to_cart" class="shop-add-btn">Add to cart</button>
-
-          <?php
-          if(array_key_exists('add_to_cart', $_POST)) {
-              add2Cart();
-          }
-
-          function add2Cart() {
-              if(isset($_COOKIE['Warenkorb'])){
-                $id = $_COOKIE['Warenkorb'];
-                $id = $id . ',' . $proditems['ID'];
-                setcookie('Warenkorb', $id, time()+3600, "/");
-              }else{
-                setcookie('Warenkorb', $proditems['ID'], time()+3600, "/");
-              }
-          }
-
-          ?>
+          <button name="add_to_cart" class="shop-add-btn"><a href="/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
 
           <button type="button" name="button" class="shop-info-btn">Info</button>
         </div>
@@ -499,6 +485,9 @@
         foreach($products_run as $proditems) :
     ?>
     <div class="shop-product">
+      <div class="shop-product-bage">
+          <p>-<?= $proditems['rabatt']; ?>%</p>
+      </div>
       <div class="shop-product-head">
         <img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" />
         <p><?= $proditems['name']; ?></p>
@@ -509,14 +498,7 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button type="submit" name="add_to_cart" class="shop-add-btn">Add to cart</button>
-
-
-          <?php
-          if(array_key_exists('add_to_cart', $_POST)) {
-              add2Cart();
-          }
-          ?>
+          <button name="add_to_cart" class="shop-add-btn"><a href="/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
           <button type="button" name="button" class="shop-info-btn">Info</button>
         </div>
       </div>

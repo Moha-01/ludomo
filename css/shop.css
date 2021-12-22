@@ -38,6 +38,7 @@
 
 .shop-product {
   display: flex;
+  position: relative;
   flex-direction: column;
   min-width: 300px;
   border: solid 1px grey;
@@ -46,6 +47,26 @@
   border-radius: 2px;
   margin: 1%;
   flex: 1 1 0px;
+}
+
+.shop-product-bage {
+  position: absolute;
+  left: -30px;
+  top: -5px;
+  transform: rotate(-45deg);
+  border-color: transparent transparent red transparent;
+  border-style: solid;
+  border-width: 0px 50px 50px 50px;
+  height: 0px;
+  width: 0px;
+}
+
+.shop-product-bage p {
+  font-family: arial;
+  position: absolute;
+  top: 30px;
+  left: -35px;
+  transform: translate(50%,-50%);
 }
 
 .shop-product-head img {
