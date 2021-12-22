@@ -7,14 +7,26 @@
                 <div>
                     <div>
                         <label class="contact_text">Username:
-                        <input type="text" name="firstname" required</>
+                        <input type="text" name="firstname"
+                        <?php
+                        if(isset($_COOKIE["username"])){
+                          echo "value=".$_COOKIE["username"];
+                        }
+                        ?>
+                        required</>
                         </label>
                     </div>
                 </div>
                 <div>
                     <div>
                         <label class="contact_text">Email:
-                        <input type="email" name="email" required />
+                        <input type="email" name="email"
+                        <?php
+                        if(isset($_COOKIE["email"])){
+                          echo "value=".$_COOKIE["email"];
+                        }
+                        ?>
+                        required />
                         </label>
                     </div>
                 </div>
