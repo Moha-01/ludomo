@@ -32,13 +32,36 @@ body{
 
 .home-child{
   display: flex;
-  height: 100%;
+  width: 100%;
   letter-spacing: 10px;
-  padding-top: 30vh;
+  padding-top: 2vh;
   font-family: "Anton";
   text-align: center;
   flex-direction: column;
   color: white;
+}
+
+.home_td{
+  background-color: white;
+  border: 5px;
+  border-color: #B2009E;
+  border-style: solid;
+  height: 100px;
+  margin: 10px;
+}
+
+.home_td p{
+  color: #B2009E;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.dev_text{
+  text-align: center;
+  font-size: 10px;
+  color: black;
+  font-family: 'Bahnschrift';
+  letter-spacing: normal;
 }
 
 .home-child input{
@@ -112,6 +135,16 @@ body{
 #contact_textarea{
   width: 80%;
   margin: 10px;
+}
+
+#home_video{
+  margin: 10px;
+  border: 8px;
+  border-style: solid;
+}
+
+#home_table{
+  width: 100%;
 }
 
 .contact_text{
