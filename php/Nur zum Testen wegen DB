@@ -84,11 +84,11 @@ $_COOKIE['count']
 
 <?php
 if (isset($_COOKIE["Warenkorb"])){
-$id = $_COOKIE["Warenkorb"];
+  $id = $_COOKIE["Warenkorb"];
   $id = $id . ',' . $proditems['ID'];
-setcookie('Warenkorb',$id,time()+3600);
+  setcookie('Warenkorb',$id,time()+3600);
 }else {
-setcookie('Warenkorb',$proditems['ID'],time()+3600);
+  setcookie('Warenkorb',$proditems['ID'],time()+3600);
 }
 
 ?>
