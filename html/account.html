@@ -48,10 +48,8 @@
 
   if(isset($_GET['btnDelete'])){
     $btnNmbr = $_GET['btnDelete'];
-
     $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
-    $sql = "DELETE * FROM user_tabelle WHERE ID=".$btnNmbr;
-    echo $sql;
+    $sql = "DELETE FROM user_tabelle WHERE ID=$btnNmbr";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
   }

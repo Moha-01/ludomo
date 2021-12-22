@@ -49,21 +49,23 @@
 
           <?php
           if(isset($_POST['btnLogin'])){
-            $conn = mysqli_connect("localhost","root","","ludomo");
-            $sql = "SELECT * FROM user_tabelle WHERE username = '$_POST[username]' AND password = '$_POST[password]'";
-            $result = mysqli_query($conn, $sql);
-            echo "Fehler: ".mysqli_error($conn);
-            $resultcheck = mysqli_num_rows($result);
-            if($resultcheck > 0){
-              while($row = mysqli_fetch_assoc($result)){
-                setcookie("username", $row["username"], time() + (3600*24), "/");
-                setcookie("email", $row["email"], time() + (3600*24), "/");
-                setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
+              $conn = mysqli_connect("localhost","root","","ludomo");
+              $sql = "SELECT * FROM user_tabelle WHERE (username = '$_POST[username]' AND password = '$_POST[password]') OR (email = '$_POST[username]' AND password = '$_POST[password]')";
+              $result = mysqli_query($conn, $sql);
+              $resultcheck = mysqli_num_rows($result);
+              if($resultcheck > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                  setcookie("username", $row["username"], time() + (3600*24), "/");
+                  setcookie("email", $row["email"], time() + (3600*24), "/");
+                  setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
+                  header("Refresh:0");
+                }
               }
+              else {
+                echo "Error: User not found".mysqli_error($conn);
+              }
+              mysqli_close($conn);
             }
-            mysqli_close($conn);
-            header("Refresh:0");
-          }
           ?>
 
 
