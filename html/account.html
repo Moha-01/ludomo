@@ -20,7 +20,7 @@
         $result  = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($result) > 0){
-          echo "<table style='width:100%'><caption></caption><thead><tr><th>Username</th><th>Email</th><th>Privilege</th><th>Delete</th><th>Upgrade</th></tr></thead><tbody>";
+          echo "<table style='width:100%'><caption></caption><thead><tr><th>Username</th><th>Email</th><th>Privilege</th><th>Delete</th><th>Upgrade</th><th>Downgrade</th></tr></thead><tbody>";
           while($row = mysqli_fetch_assoc($result)) {
             echo "<tr><td>".$row['username']."</td><td>".$row['email']."</td>";
             if($row['privalage'] == 10){
@@ -30,8 +30,9 @@
               echo "<td style='color:green'>USER</td>";
 
             }
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td></tr>";
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnUpgrade' value=".$row['ID'].">Upgrade To Admin</button></form></td></tr>";
+            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
+            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnUpgrade' value=".$row['ID'].">Upgrade</button></form></td>";
+            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDowngrade' value=".$row['ID'].">Downgrade</button></form></td></tr>";
           }
         }
         echo "</tbody></table>";
@@ -60,6 +61,15 @@
     $btnNmbr = $_GET['btnUpgrade'];
     $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
     $sql = "UPDATE user_tabelle SET privalage='10' WHERE ID = $btnNmbr";
+    mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    header("Location: /ludomo/php/konto.php");
+  }
+
+  if(isset($_GET['btnDowngrade'])){
+    $btnNmbr = $_GET['btnDowngrade'];
+    $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
+    $sql = "UPDATE user_tabelle SET privalage='1' WHERE ID = $btnNmbr";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
     header("Location: /ludomo/php/konto.php");

@@ -531,7 +531,7 @@ caption{
 
 
 .cart-container{
-  height: 80%;
+  height: 80vh;
 }
 
 .cart-content{
@@ -543,7 +543,7 @@ caption{
 
 
 .contact-content{
-  height: 80%;
+  height: 80vh;
 }
 
 .card-header h4{
