@@ -109,6 +109,21 @@ body{
   text-align: center;
 }
 
+#contact_textarea{
+  width: 80%;
+  margin: 10px;
+}
+
+.contact_text{
+    font-family: 'Bahnschrift';
+    width: 95%;
+    display: block;
+    margin: 5px 5px 5px 10%;
+    text-align: left;
+    padding: 5px;
+    border-radius: 4px;
+}
+
 .inline_button{
   font-family: 'Bahnschrift';
   width: 80%;
