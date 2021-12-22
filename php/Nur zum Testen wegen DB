@@ -7,7 +7,7 @@ $verbindung = new PDO($server, "root", "");
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
 $ergebnismenge = $abfrage->fetchAll();
-$verbindung = null
+$verbindung = null;
 
 
 
