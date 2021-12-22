@@ -48,30 +48,22 @@
           <button class="inline_button" type="submit" name="btnLogin">Login</button>
 
           <?php
-              if(isset($_POST['btnLogin'])){
-                try{
-                    $server = 'mysql:host=localhost;dbname=ludomo';
-                    $conn = new PDO($server, "root", "");
-                    $sql = "SELECT * FROM user_tabelle WHERE (email = '$_POST[username]' AND password = '$_POST[password]') or (username = '$_POST[username]' AND password = $_POST[password])";
-                    $request = $conn->prepare($sql);
-
-                    $request->execute();
-                    $result = $request->fetchAll();
-                    $conn = null;
-
-                    foreach ($result as $row){
-                      setcookie("username", $row["username"], time() + (3600*24), "/");
-                      setcookie("email", $row["email"], time() + (3600*24), "/");
-                      setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
-                    }
-                    header("Refresh:0");
-                }
-                  catch(PDOException $ex){
-                    $conn = null;
-                    echo "User not found";
-                  }
-
-                  }
+          if(isset($_POST['btnLogin'])){
+            $conn = mysqli_connect("localhost","root","","ludomo");
+            $sql = "SELECT * FROM user_tabelle WHERE username = '$_POST[username]' AND password = '$_POST[password]'";
+            $result = mysqli_query($conn, $sql);
+            echo "Fehler: ".mysqli_error($conn);
+            $resultcheck = mysqli_num_rows($result);
+            if($resultcheck > 0){
+              while($row = mysqli_fetch_assoc($result)){
+                setcookie("username", $row["username"], time() + (3600*24), "/");
+                setcookie("email", $row["email"], time() + (3600*24), "/");
+                setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
+              }
+            }
+            mysqli_close($conn);
+            header("Refresh:0");
+          }
           ?>
 
 
