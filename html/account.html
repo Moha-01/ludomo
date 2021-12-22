@@ -52,6 +52,7 @@
     $sql = "DELETE FROM user_tabelle WHERE ID=$btnNmbr";
     mysqli_query($conn, $sql);
     mysqli_close($conn);
+    header("Location: /ludomo/php/konto.php");
   }
 ?>
 </div>

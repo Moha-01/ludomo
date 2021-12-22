@@ -54,7 +54,7 @@
   left: -30px;
   top: -5px;
   transform: rotate(-45deg);
-  border-color: transparent transparent red transparent;
+  border-color: transparent transparent orange transparent;
   border-style: solid;
   border-width: 0px 50px 50px 50px;
   height: 0px;
@@ -67,6 +67,7 @@
   top: 30px;
   left: -35px;
   transform: translate(50%,-50%);
+  color: white;
 }
 
 .shop-product-head img {
