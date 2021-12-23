@@ -1,7 +1,72 @@
 <div class="main-content">
   <div class="form-content">
-      <form class="form-content-form" method="post">
-        <input type="button" name="button" value="Test">
-      </form>
+    <div class="container">
+<form action="/product_process.php">
+<div class="row">
+  <div class="col-25">
+    <label for="title">Title</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="title" name="title" placeholder="Assassins Creed">
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="ovp_price">OVP Price</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="ovp_price" name="ovp_price" placeholder="100">
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="discount">Discount</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="discount" name="discount" placeholder="50">
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="end_price">End-Price</label>
+  </div>
+  <div class="col-75">
+    <input type="text" id="end_price" name="end_price" placeholder="50">
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="country">Country</label>
+  </div>
+  <div class="col-75">
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="image">Image</label>
+  </div>
+  <div class="col-75">
+    <input type="file" id="image" name="image" >
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="subject">Subject</label>
+  </div>
+  <div class="col-75">
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+  </div>
+</div>
+<br>
+<div class="row">
+  <input type="submit" value="Submit">
+</div>
+</form>
+</div>
   </div>
 </div>
