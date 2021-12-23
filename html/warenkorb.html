@@ -1,4 +1,5 @@
 <?php
+// Produkte werden Selectiert wenn der Cookie Warenkorb besteht.
 if (isset($_COOKIE["Warenkorb"])){
 $IDs = $_COOKIE["Warenkorb"];
 $verbindung = new PDO('mysql:host=localhost;dbname=ludomo', "root", "");
@@ -46,6 +47,7 @@ $verbindung = null;}
                   <div class="card-header">
                     <form action="http://localhost/dhbw/ludomo/php/reset_cart_cookie.php">
                       <?php
+                      // prüfen ob der Checkout Button angezeigt werden soll
                         if(isset($_COOKIE['Warenkorb'])){
                           ?>
                           <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
