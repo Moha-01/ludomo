@@ -11,6 +11,8 @@
                         <label class="contact_text">Username:
                         <input type="text" name="firstname"
                         <?php
+                        // Wenn ein Benutzer bereits angeweldet ist, wird das username-Feld automatisch befüllt,
+                        // sonst muss dies manuell eingetragen werden
                         if(isset($_COOKIE["username"])){
                           echo "value=".$_COOKIE["username"];
                         }
@@ -24,6 +26,8 @@
                         <label class="contact_text">Email:
                         <input type="email" name="email"
                         <?php
+                        // Wenn ein Benutzer bereits angeweldet ist, wird das email-Feld automatisch befüllt, 
+                        // sonst muss dies manuell eingetragen werden
                         if(isset($_COOKIE["email"])){
                           echo "value=".$_COOKIE["email"];
                         }

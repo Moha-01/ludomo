@@ -5,6 +5,7 @@
   echo "<strong>Username:  </strong><label id='acc_text_info'>" .$_COOKIE["username"]."</label><br>";
   echo "<strong>Email:  </strong><label id='acc_text_info'>" .$_COOKIE["email"]."</label>";
 
+  //prüfen, ob angemeldeter Benutzer ein Admin ist
   if(isset($_COOKIE["privalage"])){
     if($_COOKIE["privalage"] == 10){
       echo "<br><strong style='color:red'>A D M I N</strong>";
@@ -13,12 +14,15 @@
 
   echo "<form method='post' claass='form_div_account'><button class='inline_button_small' type='submit' name='btnLogout'>Logout</button></form>";
 
+  // prüfen, ob angemeldeter Benutzer ein Admin ist und erst dann wenn ein Admin angemeldet ist,
+  // werden die Users Daten aus dem Datenbank geholt.
   if(isset($_COOKIE["privalage"])){
     if($_COOKIE["privalage"] == 10){
         $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
-        $sql = "SELECT * FROM user_tabelle";
-        $result  = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM user_tabelle";                    //SQL Statement holt alle Users aus user_tabelle
+        $result  = mysqli_query($conn, $sql);                   //SQL Statement ausführen
 
+        // Wenn Tabelle Userers hat, werden diese in eine Tabelle angezeigt (zusätzlich Optionen zur User Verwaltung)
         if(mysqli_num_rows($result) > 0){
           echo "<table style='width:100%'><caption></caption><thead><tr><th>Username</th><th>Email</th><th>Privilege</th><th>Delete</th><th>Upgrade</th><th>Downgrade</th></tr></thead><tbody>";
           while($row = mysqli_fetch_assoc($result)) {
@@ -30,6 +34,7 @@
               echo "<td style='color:green'>USER</td>";
 
             }
+            // Buttons zur User Verwaltung. Also User Löschen/zum Admin hoch fördern/ zum Normalen User unter fördern
             echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
             echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnUpgrade' value=".$row['ID'].">Upgrade</button></form></td>";
             echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDowngrade' value=".$row['ID'].">Downgrade</button></form></td></tr>";
@@ -40,23 +45,23 @@
     }
   }
 
-
+  // Wenn der Button Logout geklickt wird, dann werden die Cookies für die Anmeldung gelöscht
   if(isset($_POST['btnLogout'])){
-    setcookie("username", "username", time() - 1, "/");
+    setcookie("username", "username", time() - 1, "/");         //Cookie zum Ablaufzeit setzen
     setcookie("email", "email", time() - 1, "/");
     setcookie("privalage", "privalage", time() - 1, "/");
     header("Refresh:0");
   }
-
+  // Wenn der Button Delete geklickt wird, dann wird der User in der Selbe Reihe wie der Button gelöscht
   if(isset($_GET['btnDelete'])){
     $btnNmbr = $_GET['btnDelete'];
-    $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
-    $sql = "DELETE FROM user_tabelle WHERE ID=$btnNmbr";
-    mysqli_query($conn, $sql);
-    mysqli_close($conn);
-    header("Location: /dhbw/ludomo/php/konto.php");
+    $conn = mysqli_connect("localhost","root","","ludomo");   //Verbindung zu DB aufbauen
+    $sql = "DELETE FROM user_tabelle WHERE ID=$btnNmbr";      //SQL Statement zum löschen einer User
+    mysqli_query($conn, $sql);                                //SQL Statement ausführen
+    mysqli_close($conn);                                      //SQL Ausführung abschließen
+    header("Location: /dhbw/ludomo/php/konto.php");           //Seite neu laden
   }
-
+  // Wenn der Button Upgrade geklickt wird, dann wird der User in der Selbe Reihe wie der Button zum Admin gemacht
   if(isset($_GET['btnUpgrade'])){
     $btnNmbr = $_GET['btnUpgrade'];
     $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen
@@ -65,7 +70,7 @@
     mysqli_close($conn);
     header("Location: /dhbw/ludomo/php/konto.php");
   }
-
+  // Wenn der Button Downgrade geklickt wird, dann wird der User in der Selbe Reihe wie der Button zdie Admin Rechte weg genommen
   if(isset($_GET['btnDowngrade'])){
     $btnNmbr = $_GET['btnDowngrade'];
     $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen

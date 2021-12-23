@@ -12,6 +12,8 @@
       <li> <a href="http://localhost/dhbw/ludomo/php/konto.php"> Account </a> </li>
       <li> <a href="http://localhost/dhbw/ludomo/php/forms/contact.php"> Contact </a> </li>
       <?php
+        // Prüfen ob Ware zum Warenkorb addiert sind und die Anzahl der Ware in
+        // eine Variable ($cart_counter) speichern, um diese noch im Header anzuzeigen
         $cart_counter = 0;
         if(isset($_COOKIE['Warenkorb'])){
           $IDs = $_COOKIE['Warenkorb'];
