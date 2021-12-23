@@ -6,8 +6,6 @@
   </head>
   <body>
     <center>
-
-
 <?php
 
 $target_dir = "../assets/images/";
@@ -26,7 +24,6 @@ if(isset($_POST["submit"])) {
     $uploadOk = 0;
   }
 }
-
 
 
 // Check if file already exists
@@ -65,7 +62,7 @@ if ($uploadOk == 0) {
 // servername => localhost
 // username => root
 // password => empty
-// database name => staff
+// database name => ludomo
 $conn = mysqli_connect("localhost", "root", "", "ludomo");
 
 // Check connection
@@ -88,7 +85,7 @@ $fsk_id = $_POST['game_fsk'];
 $platform_id = $_POST['game_platform'];
 
 // Performing insert query execution
-// here our table name is college
+// here our table name is products
 $sql = "INSERT INTO products
 (`brand_id`, `genre_id`, `S_M_id`, `name`, `preis`, `rabatt`, `endpreis`, `picture`, `fsk_id`, `platform_id`)
  VALUES ('$brand_id', '$genre_id','$S_M_id','$name','$preis','$rabatt','$endpreis','$picture','$fsk_id','$platform_id')";

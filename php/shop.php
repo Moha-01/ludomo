@@ -1,5 +1,5 @@
 <?php
-//Diese PHP-Datei Sammelt Informationen um die Seite shop zu erstellen 
+//Diese PHP-Datei Sammelt Dateien um die Seite shop zu erstellen
 
 if(array_key_exists('delete', $_GET)) {
     deleteProduct($_GET['delete']);

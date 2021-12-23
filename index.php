@@ -1,6 +1,6 @@
 <?php
 
-//try catch bitte erledigen!!
+//Diese PHP-Datei Sammelt Dateien um die Seite Home zu erstellen
 include "./php/db.php";
 include "./html/templates/head.html";
 include "./html/main_css.html";

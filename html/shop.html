@@ -18,6 +18,7 @@
                    <h6>Price Sort</h6>
                    <hr>
                    <?php
+                        //Liste aus Checkboxes für die Sortier mölichkeiten
                        $con = mysqli_connect("localhost","root","","ludomo");
 
                        $price_query = "SELECT * FROM price_sort";
@@ -35,7 +36,11 @@
                                ?>
                                    <div>
                                        <input type="checkbox" name="price[]" value="<?= $pricelist['id']; ?>"
-                                           <?php if(in_array($pricelist['id'], $checked)){ echo "checked"; } ?>
+                                           <?php
+                                           // gewählte Filter Optionen speichern
+                                           if(in_array($pricelist['id'], $checked)){
+                                             echo "checked";
+                                         } ?>
                                         />
                                         <?= $pricelist['price']; ?>
                                    </div>
@@ -53,6 +58,7 @@
                   <h6>Game Mode</h6>
                   <hr>
                   <?php
+                      //Die Filter Liste anzeigen und Mode möglichkeiten zum Filtern Darstellen
                       $con = mysqli_connect("localhost","root","","ludomo");
 
                       $mode_query = "SELECT * FROM mode_list";
@@ -88,6 +94,7 @@
                  <h6>Platform</h6>
                  <hr>
                  <?php
+                    //Die Filter Liste anzeigen und Platform möglichkeiten zum Filtern Darstellen
                      $con = mysqli_connect("localhost","root","","ludomo");
 
                      $platform_query = "SELECT * FROM platform";
@@ -123,6 +130,7 @@
                  <h6>Genre List</h6>
                  <hr>
                  <?php
+                    //Die Filter Liste anzeigen und Genre möglichkeiten zum Filtern Darstellen
                      $con = mysqli_connect("localhost","root","","ludomo");
 
                      $genre_query = "SELECT * FROM genre_list";
@@ -158,6 +166,7 @@
                    <h6>Brands List</h6>
                    <hr>
                    <?php
+                      //Die Filter Liste anzeigen und Brands möglichkeiten zum Filtern Darstellen
                        $con = mysqli_connect("localhost","root","","ludomo");
 
                        $brand_query = "SELECT * FROM brands_list";
@@ -193,6 +202,7 @@
                   <h6>Prices List</h6>
                   <hr>
                   <?php
+                    //Die Filter Liste anzeigen und Preis möglichkeiten zum Filtern Darstellen
                       $con = mysqli_connect("localhost","root","","ludomo");
 
                       $preise_query = "SELECT * FROM preise_list";
@@ -227,6 +237,7 @@
                   <h6>FSK List</h6>
                   <hr>
                   <?php
+                    //Die Filter Liste anzeigen und FSK möglichkeiten zum Filtern Darstellen
                       $con = mysqli_connect("localhost","root","","ludomo");
 
                       $fsk_query = "SELECT * FROM fsk_list";
@@ -267,6 +278,7 @@
         $products_items = array();
         $output_products = [];
 
+        //Prüfe auf gesetzte Filter Optionen
         if(isset($_GET['brand']) || isset($_GET['fsk']) || isset($_GET['genre']) || isset($_GET['mode']) || isset($_GET['platform']) || isset($_GET['preise']) || isset($_GET['price']))
         {
             //Prise Sortierung
@@ -294,6 +306,8 @@
               }
 
             }
+
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['brand'])){
               $number_of_filter_checkboxes++;
               $branchecked = [];
@@ -312,6 +326,7 @@
                   }
               }
             }
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['fsk'])){
               $number_of_filter_checkboxes++;
               $fskchecked = [];
@@ -330,6 +345,7 @@
                   }
               }
             }
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['genre'])){
               $number_of_filter_checkboxes++;
               $genrechecked = [];
@@ -348,6 +364,7 @@
                   }
               }
             }
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['mode'])){
               $number_of_filter_checkboxes++;
               $modechecked = [];
@@ -366,6 +383,7 @@
                   }
               }
             }
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['platform'])){
               $number_of_filter_checkboxes++;
               $platformchecked = [];
@@ -384,6 +402,7 @@
                   }
               }
             }
+            //Darstellung des Filter Möglichkeiten
             if(isset($_GET['preise'])){
               $number_of_filter_checkboxes++;
               $preisechecked = [];
@@ -403,6 +422,9 @@
               }
 
             }
+
+
+            //Produkte mit absicht Duplizieren und die gewollten Produkte (nach dem Filtern) anzuzeigen
             $unique_items = array_unique($products_items);
             $duplicated_items = [];
 
@@ -420,8 +442,7 @@
               }
               $counter = 0;
             }
-            //print_r($duplicated_items);
-
+            //Filter zeigt nur duplizierte Produkte an (nach Filter gewünscht)
             foreach($duplicated_items as $current){
               $products = "SELECT products.* FROM products WHERE products.name = ('$current')";
               $products_run = mysqli_query($con, $products);
@@ -445,6 +466,7 @@
         <div class="shop-product-foot-btn">
           <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
           <?php
+              // Das Delete Button wird erst dann angezeigt, wenn man als Admin angemeldet ist. Nur dann kann man ein Produkt löschen
               if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
                 if($_COOKIE["privalage"] == 10){
                   ?>
@@ -459,39 +481,38 @@
       </div>
     </div>
         <?php
-        endforeach;
+                endforeach;
+              }
+              else
+              {
+                    echo "No Items Found";
+              }
+            }
         }
         else
         {
-          echo "No Items Found";
-        }
-        }
-
-
-        }
-        else
-        {
+          //Alle Produkte Anzeigen. Da kein Filter aktiviert ist
         $products = "SELECT * FROM products";
         //Prise Sortierung
         if(isset($_GET['price'])){
 
-        $number_of_filter_checkboxes++;
-        $pricechecked = end($_GET['price']);
+          $number_of_filter_checkboxes++;
+          $pricechecked = end($_GET['price']);
 
+          //Preis Aufsteigend oder Absteigend bestimmen
+          if($pricechecked == 1){
+            $products = "SELECT * FROM `products` ORDER BY endpreis";
+          }
 
-        if($pricechecked == 1){
-        $products = "SELECT * FROM `products` ORDER BY endpreis";
-        }
-
-        if($pricechecked == 2){
-        $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
-        }
+          if($pricechecked == 2){
+            $products = "SELECT * FROM `products` ORDER BY endpreis DESC";
+          }
         }
 
         $products_run = mysqli_query($con, $products);
         if(mysqli_num_rows($products_run) > 0)
         {
-        foreach($products_run as $proditems) :
+          foreach($products_run as $proditems) :
     ?>
     <div class="shop-product">
       <div class="shop-product-bage">
@@ -509,6 +530,7 @@
         <div class="shop-product-foot-btn">
           <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
           <?php
+            // Das Delete Button wird erst dann angezeigt, wenn man als Admin angemeldet ist. Nur dann kann man ein Produkt löschen
               if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
                 if($_COOKIE["privalage"] == 10){
                   ?>
@@ -523,17 +545,18 @@
       </div>
     </div>
       <?php
-      endforeach;
-      }
-      else
-      {
-      echo "No Items Found";
-      }
+          endforeach;
+        }
+        else
+        {
+          echo "No Items Found";
+        }
       }
       ?>
   </div>
 </div>
 <?php
+// Das + Button wird erst dann angezeigt, wenn man als Admin angemeldet ist. Nur dann kann man ein Produkt anlegen
     if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
       if($_COOKIE["privalage"] == 10){
         ?>
