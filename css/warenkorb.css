@@ -1,9 +1,13 @@
-.cart-container{
+.cart-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
   min-height: 100vh;
+}
+
+.cart-container .container{
+  background-color: transparent;
 }
 
 
