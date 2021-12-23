@@ -36,13 +36,69 @@
 </div>
 <div class="row">
   <div class="col-25">
-    <label for="country">Country</label>
+    <label for="game_mode">Game Mode</label>
   </div>
   <div class="col-75">
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
+    <select id="game_mode" name="game_mode">
+      <option value="1">Single-player</option>
+      <option value="2">Multi-player</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="game_platform">Platform</label>
+  </div>
+  <div class="col-75">
+    <select id="game_platform" name="game_platform">
+      <option value="1">PC</option>
+      <option value="2">XBOX</option>
+      <option value="3">Playstation</option>
+      <option value="4">Switch</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="game_genre">Genre</label>
+  </div>
+  <div class="col-75">
+    <select id="game_genre" name="game_genre">
+      <option value="1">Action</option>
+      <option value="2">Survival</option>
+      <option value="3">Strategie</option>
+      <option value="4">Simulation</option>
+      <option value="5">MMO</option>
+      <option value="6">Shooter</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="game_brand">Brand</label>
+  </div>
+  <div class="col-75">
+    <select id="game_brand" name="game_brand">
+      <option value="1">Ubisoft</option>
+      <option value="2">Microsoft</option>
+      <option value="3">Steam</option>
+      <option value="4">Origin</option>
+      <option value="5">Epic Games</option>
+      <option value="6">Switch</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-25">
+    <label for="game_fsk">FSK</label>
+  </div>
+  <div class="col-75">
+    <select id="game_fsk" name="game_fsk">
+      <option value="1">FSK 0</option>
+      <option value="2">FSK 6</option>
+      <option value="3">FSK 12</option>
+      <option value="4">FSK 16</option>
+      <option value="5">FSK 18</option>
     </select>
   </div>
 </div>
@@ -56,15 +112,15 @@
 </div>
 <div class="row">
   <div class="col-25">
-    <label for="subject">Subject</label>
+    <label for="description">Description</label>
   </div>
   <div class="col-75">
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <textarea id="description" name="description" placeholder="The Game is about.." style="height:100px"></textarea>
   </div>
 </div>
 <br>
 <div class="row">
-  <input type="submit" value="Submit">
+  <input type="submit" value="Add Product">
 </div>
 </form>
 </div>
