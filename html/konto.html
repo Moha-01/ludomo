@@ -20,6 +20,7 @@
           <button class="inline_button" type="submit" name="btnRegister">Register</button>
 
           <?php
+          // Bei einem Klick auf dem Register Button, werden neue User Daten in der DatenBank geschrieben.
           if(isset($_POST['btnRegister'])){
             $con = new PDO('mysql:host=localhost;dbname=ludomo', "root", "",); //Verbindung zu DB aufbauen
             $sql = "INSERT INTO user_tabelle( username, password, email, privalage) VALUES ('$_POST[username]','$_POST[password]','$_POST[email]',1)";
@@ -48,6 +49,8 @@
           <button class="inline_button" type="submit" name="btnLogin">Login</button>
 
           <?php
+          // Bei einem Klick auf dem Login Button, wird geprüft, ob die Daten in Datenbank existieren und dann bei vorhandenen Daten kann sich der User anmelden.
+          // Anmelde Status wird in einem Cookie gesetzt.
           if(isset($_POST['btnLogin'])){
               $conn = mysqli_connect("localhost","root","","ludomo");
               $sql = "SELECT * FROM user_tabelle WHERE (username = '$_POST[username]' AND password = '$_POST[password]') OR (email = '$_POST[username]' AND password = '$_POST[password]')";
@@ -58,7 +61,7 @@
                   setcookie("username", $row["username"], time() + (3600*24), "/");
                   setcookie("email", $row["email"], time() + (3600*24), "/");
                   setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
-                  header("Refresh:0");
+                  header("Refresh:0");        //Seite Neu Laden
                 }
               }
               else {

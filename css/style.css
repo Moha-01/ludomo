@@ -127,7 +127,7 @@ body{
 
 .form_container{
   position: relative;
-
+  width: 40vw;
 }
 
 .inline_text{
@@ -187,7 +187,7 @@ body{
 
 .inline_button{
   font-family: 'Bahnschrift';
-  width: 80%;
+  width: 40vw;
   text-align: center;
   padding: 10px;
   margin: 10px auto;
@@ -225,7 +225,7 @@ caption{
 
 .account_table_container{
   margin: 0px auto;
-  width: 100%;
+  width: 40vw;
 }
 
 .account_form{
