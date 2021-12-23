@@ -444,8 +444,17 @@
         </div>
         <div class="shop-product-foot-btn">
           <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
+          <?php
+              if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
+                if($_COOKIE["privalage"] == 10){
+                  ?>
+                  <button name="delete" class="shop-delete-btn"><a href="/dhbw/ludomo/php/shop.php?delete=<?= $proditems['ID']; ?>">Remove</a></button>
+                  <?php
+                }
+              }
 
-    
+          ?>
+
         </div>
       </div>
     </div>
@@ -499,6 +508,16 @@
         </div>
         <div class="shop-product-foot-btn">
           <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
+          <?php
+              if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
+                if($_COOKIE["privalage"] == 10){
+                  ?>
+                  <button name="delete" class="shop-delete-btn"><a href="/dhbw/ludomo/php/shop.php?delete=<?= $proditems['ID']; ?>">Remove</a></button>
+                  <?php
+                }
+              }
+
+          ?>
 
         </div>
       </div>
