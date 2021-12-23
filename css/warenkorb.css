@@ -1,0 +1,79 @@
+.cart-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  min-height: 100vh;
+}
+
+
+.card-header{
+  display: flex;
+  font-size: 30px;
+  width: 90vw;
+  height: 5vh;
+  margin: 2vh 0 2vh 0;
+  text-align: center;
+  background-color: white;
+  font-family: "Anton";
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+
+.card-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: white;
+  width: 90vw;
+  border-radius: 5px;
+  font-size: 20px;
+
+}
+
+.card-body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  border: solid 1px grey;
+  border-radius: 2px;
+
+}
+
+
+.cart-product-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  margin-right: 15vw;
+  margin-top: 2%;
+}
+
+
+.card-header button {
+  min-width: 45%;
+  transition-duration: 0.4s;
+  color: green;
+  align-self: center;
+  font-size: 16px;
+  height: 35px;
+  border: solid 1px green;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border-radius: 2px;
+  margin-bottom: 1vh;
+}
+
+.card-header button:hover {
+  color: white;
+  background-color: green;
+  border: solid 1px green;
+}

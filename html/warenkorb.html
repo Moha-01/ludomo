@@ -11,28 +11,24 @@ try {
 $Wahrenkorb_Tab = $abfrage->fetchAll();
 $verbindung = null;}
 ?>
-<div class="cart-container">
-  <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="card mt-3">
-                      <div class="card-header">
-                        <h4>Cart</h4>
-                      </div>
+
+  <div class="cart-container">
+    <div class="container">
+            <div class="cart-row">
+                  <div class="card-header">
+                    <h4>Cart</h4>
                   </div>
-              </div>
-              <div class="col-md-9 mt-3">
-                  <div class="card ">
+                  <div class="card-cards">
                     <?php
                     if (isset($Wahrenkorb_Tab)){
                     foreach($Wahrenkorb_Tab as $Wahrenkorb):
                     ?>
-                      <div class="card-body row">
+                      <div class="card-body">
                               <table>
                                 <tr>
-                                  <td align="left"> <img src="<?= $Wahrenkorb['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:150px"></td>
-                                  <td align="center"><?= $Wahrenkorb['name']; ?></td>
-                                  <td align="right"><?= $Wahrenkorb['endpreis'] .'€' ; ?></td>
+                                  <td class="cart-product-left"> <img src="<?= $Wahrenkorb['picture'] ?>" alt="<?= $proditems['name'] ?>" style="width:25%"></td>
+                                  <td class="cart-product-middle"><?= $Wahrenkorb['name']; ?></td>
+                                  <td class="cart-product-right"><?= $Wahrenkorb['endpreis'] .'€' ; ?></td>
                                 </tr>
                           </table>
                       </div>
@@ -46,23 +42,17 @@ $verbindung = null;}
                       }
                       ?>
                   </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="card mt-3">
-                      <div class="card-header">
-                        <form action="http://localhost/ludomo/php/reset_cart_cookie.php">
-                          <?php
-                            if(isset($_COOKIE['Warenkorb'])){
-                              ?>
-                              <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
-                              <?php
-                            }
+                  <div class="card-header">
+                    <form action="http://localhost/ludomo/php/reset_cart_cookie.php">
+                      <?php
+                        if(isset($_COOKIE['Warenkorb'])){
                           ?>
-                        </form>
-                      </div>
+                          <button type="submit" class="btn btn-outline-success" name="Checkout">Checkout</button>
+                          <?php
+                        }
+                      ?>
+                    </form>
                   </div>
               </div>
-            </div>
           </div>
-
-</div>
+      </div>
