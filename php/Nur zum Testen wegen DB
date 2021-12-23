@@ -91,4 +91,6 @@ if (isset($_COOKIE["Warenkorb"])){
   setcookie('Warenkorb',$proditems['ID'],time()+3600);
 }
 
+
+$sql = "INSERT INTO `products`(`brand_id`, `genre_id`, `S_M_id`, `name`, `preis`, `rabatt`, `endpreis`, `background`, `discription`, `picture`, `fsk_id`, `platform_id`) VALUES ($brand_id, $genre_id, $S_M_id, $name, $preis, $rabatt$, $endpreis, $background, $discription$, $picture, $fsk_id, $platform_id)"
 ?>
