@@ -1,10 +1,11 @@
 <?php
-$server = 'mysql:host=localhost';
-$sqlBefehl = 'CREATE DATABASE IF NOT EXISTS ludomo;';
+// Ermitteln ob die Datenbanken bereits bestehen.
 try {
   $verbindung = new PDO('mysql:host=localhost;dbname=ludomo', "root", "",);
 } catch (\Exception $e) {
-
+// wenn noch keine Datenbanken Bestehen weden siese Hier angelebt
+$server = 'mysql:host=localhost';
+$sqlBefehl = 'CREATE DATABASE IF NOT EXISTS ludomo;';
 $verbindung = new PDO($server, "root", "");
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
@@ -38,6 +39,7 @@ $abfrage->execute();
 $sqlBefehl = 'CREATE TABLE IF NOT EXISTS platform(id INTEGER AUTO_INCREMENT, platform VARCHAR (100), PRIMARY KEY (id));';
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
+// Die Initialen Daten der Datenbanktabelle werden nun eingelesen
 $sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/dhbw/ludomo/csv/Products.csv' INTO TABLE `Products` FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
