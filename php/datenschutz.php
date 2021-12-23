@@ -1,4 +1,5 @@
 <?php
+//Diese PHP-Datei Sammelt Informationen um die Seite datenschuzt zu erstellen.
 include "../html/templates/head.html";
 include "../html/templates/header.html";
 include "../html/others_css.html";

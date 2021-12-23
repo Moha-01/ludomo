@@ -1,5 +1,5 @@
 <?php
-
+//Diese PHP-Datei Sammelt Informationen um die Seite konto zu erstellen 
 include "../html/templates/head.html";
 include "../html/others_css.html";
 include "../html/templates/header.html";
