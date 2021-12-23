@@ -38,7 +38,7 @@ $abfrage->execute();
 $sqlBefehl = 'CREATE TABLE IF NOT EXISTS platform(id INTEGER AUTO_INCREMENT, platform VARCHAR (100), PRIMARY KEY (id));';
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
-$sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/products.csv' INTO TABLE `Products` FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
+$sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/Products.csv' INTO TABLE `Products` FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
 $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
 $sqlBefehl = "LOAD DATA INFILE '/xampp/htdocs/ludomo/php/php-libraries/User_Tabelle.csv' INTO TABLE User_Tabelle FIELDS TERMINATED BY ';'  LINES STARTING BY '' IGNORE 1 LINES;";
