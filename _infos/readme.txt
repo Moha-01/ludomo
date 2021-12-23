@@ -6,8 +6,8 @@ Folgende Informationen beachten:
 
 TODO TASKS:
 
-- mehr benutzer in der Datenbank erstellen
 - info button
+- pop up fenster anpassen
 - kommentare setzen
 - upload site
 - delete site
