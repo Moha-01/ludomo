@@ -10,7 +10,7 @@ function add2Cart($itemid) {
       $id = $_COOKIE['Warenkorb'];
       $id = $id . ',' . $itemid;
       setcookie('Warenkorb', $id, time()+3600, "/");
-    }else
+    }else{
 // Cookie erstellen
       setcookie('Warenkorb', $itemid, time()+3600, "/");
     }
