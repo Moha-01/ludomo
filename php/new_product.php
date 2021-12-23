@@ -1,5 +1,5 @@
 <?php
-//Diese PHP-Datei Sammelt Informationen um die Seite new_product zu erstellen 
+//Diese PHP-Datei Sammelt Dateien um die Seite new_product zu erstellen 
 include "../html/templates/head.html";
 include "../html/templates/header.html";
 include "../html/others_css.html";

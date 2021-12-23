@@ -1,5 +1,5 @@
 <?php
-//Diese PHP-Datei Sammelt Informationen um die Seite warenkorb zu erstellen 
+//Diese PHP-Datei Sammelt Dateien um die Seite warenkorb zu erstellen 
 if(array_key_exists('add_to_cart', $_GET)) {
     add2Cart($_GET['add_to_cart']);
 }
