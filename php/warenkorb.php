@@ -12,7 +12,7 @@ function add2Cart($itemid) {
     }else{
       setcookie('Warenkorb', $itemid, time()+3600, "/");
     }
-    header("Location: /ludomo/php/shop.php");
+    header("Location: /dhbw/ludomo/php/shop.php");
 }
 
 include "../html/head.html";
