@@ -7,9 +7,9 @@ Folgende Informationen beachten:
 TODO TASKS:
 
 - info button
-- pop up fenster anpassen
-- kommentare setzen
+
 - upload site
 - delete site
+- kommentare setzen
 - readme Informations
 - vielleicht contact Form schöner machen

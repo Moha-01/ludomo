@@ -67,4 +67,10 @@ $abfrage = $verbindung->prepare($sqlBefehl);
 $abfrage->execute();
 }
 $verbindung=null;
+
+$con = new PDO('mysql:host=localhost;dbname=ludomo', "root", "",); //Verbindung zu DB aufbauen
+$sql = "INSERT INTO user_tabelle( username, password, email, privalage) VALUES ('user','user','user@test.de',1)";
+$con->exec($sql);
+$con=null;
+
  ?>
