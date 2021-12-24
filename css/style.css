@@ -161,10 +161,12 @@ body{
   resize: none;
 }
 
-#home_video{
+.home_video{
   margin: 10px;
   border: 8px;
   border-style: solid;
+  height: 40vh;
+  width: 40vw;
 }
 
 #home_table{
