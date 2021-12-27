@@ -693,3 +693,15 @@ select[name="prios"]::-ms-expand {
   width: 15vw;
   text-align: center;
 }
+
+
+.info_img_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_img_container .info_img img{
+  height: 10vh;
+  width: 5vw;
+}
