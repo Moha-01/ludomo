@@ -2,8 +2,8 @@
 <?php
 
   echo "<div class='img_container'><img src='../assets/images/avatar_img.png' alt='Avatar' class='avatar'></div>";
-  echo "<strong>Username:  </strong><label id='acc_text_info'>" .$_COOKIE["username"]."</label><br>";
-  echo "<strong>Email:  </strong><label id='acc_text_info'>" .$_COOKIE["email"]."</label>";
+  echo "<strong>Username:  </strong><label >" .$_COOKIE["username"]."</label><br>";
+  echo "<strong>Email:  </strong><label>" .$_COOKIE["email"]."</label>";
 
   //prüfen, ob angemeldeter Benutzer ein Admin ist
   if(isset($_COOKIE["privalage"])){
@@ -12,7 +12,7 @@
     }
   }
 
-  echo "<form method='post' claass='form_div_account'><button class='inline_button_small' type='submit' name='btnLogout'>Logout</button></form>";
+  echo "<form method='post' class='form_div_account'><button class='inline_button_small' type='submit' name='btnLogout'>Logout</button></form>";
 
   // prüfen, ob angemeldeter Benutzer ein Admin ist und erst dann wenn ein Admin angemeldet ist,
   // werden die Users Daten aus dem Datenbank geholt.
@@ -35,9 +35,9 @@
 
             }
             // Buttons zur User Verwaltung. Also User Löschen/zum Admin hoch fördern/ zum Normalen User unter fördern
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnUpgrade' value=".$row['ID'].">Upgrade</button></form></td>";
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDowngrade' value=".$row['ID'].">Downgrade</button></form></td></tr>";
+            echo "<td><form method='get'><button class='tablebutton'  type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
+            echo "<td><form method='get'><button class='tablebutton'  type='submit' name='btnUpgrade' value=".$row['ID'].">Upgrade</button></form></td>";
+            echo "<td><form method='get'><button class='tablebutton'  type='submit' name='btnDowngrade' value=".$row['ID'].">Downgrade</button></form></td></tr>";
           }
         }
         echo "</tbody></table>";
@@ -67,7 +67,7 @@
 
             }
             // Buttons zur User Verwaltung. Also User Löschen/zum Admin hoch fördern/ zum Normalen User unter fördern
-            echo "<td><form method='get'><button class='tablebutton' id=".$row['ID']." type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
+            echo "<td><form method='get'><button class='tablebutton' type='submit' name='btnDelete' value=".$row['ID'].">Delete</button></form></td>";
           }
         }
         echo "</tbody></table>";

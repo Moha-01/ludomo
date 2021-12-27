@@ -9,7 +9,7 @@
                 <td>
                     <div>
                         <label class="contact_text">Username:
-                        <input type="text" name="firstname"
+                        <input class="input_field" type="text" name="firstname"
                         <?php
                         // Wenn ein Benutzer bereits angeweldet ist, wird das username-Feld automatisch befüllt,
                         // sonst muss dies manuell eingetragen werden
@@ -17,16 +17,16 @@
                           echo "value=".$_COOKIE["username"];
                         }
                         ?>
-                        required</>
+                        required/>
                         </label>
                     </div>
                 </td>
                 <td>
                     <div>
                         <label class="contact_text">Email:
-                        <input type="email" name="email"
+                        <input class="input_field"  type="email" name="email"
                         <?php
-                        // Wenn ein Benutzer bereits angeweldet ist, wird das email-Feld automatisch befüllt, 
+                        // Wenn ein Benutzer bereits angeweldet ist, wird das email-Feld automatisch befüllt,
                         // sonst muss dies manuell eingetragen werden
                         if(isset($_COOKIE["email"])){
                           echo "value=".$_COOKIE["email"];
@@ -39,14 +39,14 @@
                 </tr>
               </table>
                 <div >
-                    <div">
+                    <div>
                         <label class="inline_text">Message</label>
-                        <textarea id="contact_textarea"name="message" required></textarea>
+                        <textarea id="contact_textarea" name="message" required></textarea>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label class ="inline_text">Priority:
+                <div class="col-xs-12">
+                    <div class="styled-input wide">
+                        <label class="lable_select_option">Priority:
                             <select name="prios" id="prios">
                                 <option value="High">High</option>
                                 <option value="Medium">Medium</option>
@@ -56,9 +56,10 @@
                     </div>
                 </div>
                 <div>
-                <button class="inline_button">Send Message</button>
+                  <button class="inline_button">Send Message</button>
                 </div>
             </div>
         </form>
         <br><br>
+        </div>
     </section>
