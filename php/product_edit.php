@@ -23,11 +23,8 @@ $fsk_id = $_POST['game_fsk'];
 $platform_id = $_POST['game_platform'];
 $discription = $_POST['description'];
 
-echo $discription;
 
-
-// Performing insert query execution
-// here our table name is products
+//Save New Informations per SQL Statement in the DataBase!
 $sql = "UPDATE products SET `genre_id` = '$genre_id',
                             `brand_id` = '$brand_id',
                             `S_M_id` = '$S_M_id',
