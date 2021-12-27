@@ -1,8 +1,8 @@
-<head>
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/shop.css">
   <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.css">
-</head>
+
 <div class="shop-container">
   <div class="shop-titlebar">
     <h1>Enjoy Shopping our Games</h1>
@@ -455,7 +455,9 @@
           <p>-<?= $proditems['rabatt']; ?>%</p>
       </div>
       <div class="shop-product-head">
-        <button name="overview"><a href="/dhbw/ludomo/php/product_overview.php?overview=<?= $proditems['ID']; ?>"><img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" /></a></button>
+        <form action="/dhbw/ludomo/php/product_overview.php">
+          <button name="overview" value="<?= $proditems['ID']; ?>"><img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" /></button>
+        </form>
         <p><?= $proditems['name']; ?></p>
       </div>
       <div class="shop-product-foot">
@@ -464,13 +466,17 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
+          <form action="/dhbw/ludomo/php/warenkorb.php">
+            <button name="add_to_cart" value="<?= $proditems['ID']; ?>" class="shop-add-btn">Add to cart</button>
+          </form>
           <?php
               // Das Delete Button wird erst dann angezeigt, wenn man als Admin angemeldet ist. Nur dann kann man ein Produkt löschen
               if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
                 if($_COOKIE["privalage"] == 10){
                   ?>
-                  <button name="delete" class="shop-delete-btn"><a href="/dhbw/ludomo/php/shop.php?delete=<?= $proditems['ID']; ?>">Remove</a></button>
+                  <form action="/dhbw/ludomo/php/shop.php">
+                    <button name="delete" value="<?= $proditems['ID']; ?>" class="shop-delete-btn">Remove</button>
+                  </form>
                   <?php
                 }
               }
@@ -519,7 +525,9 @@
           <p>-<?= $proditems['rabatt']; ?>%</p>
       </div>
       <div class="shop-product-head">
-        <button name="overview"><a href="/dhbw/ludomo/php/product_overview.php?overview=<?= $proditems['ID']; ?>"><img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>" alt="Shopimg" /></a></button>
+        <form action="/dhbw/ludomo/php/product_overview.php">
+          <button name="overview" value="<?= $proditems['ID']; ?>"><img src="<?= $proditems['picture']; ?>" alt="<?= $proditems['name']; ?>"/></button>
+        </form>
         <p><?= $proditems['name']; ?></p>
       </div>
       <div class="shop-product-foot">
@@ -528,13 +536,18 @@
           <p class="shop-price-end"><?= $proditems['endpreis']; ?>€</p>
         </div>
         <div class="shop-product-foot-btn">
-          <button name="add_to_cart" class="shop-add-btn"><a href="/dhbw/ludomo/php/warenkorb.php?add_to_cart=<?= $proditems['ID']; ?>">Add to cart</a></button>
+          <form action="/dhbw/ludomo/php/warenkorb.php">
+            <button name="add_to_cart" value="<?= $proditems['ID']; ?>" class="shop-add-btn">Add to cart</button>
+          </form>
+
           <?php
             // Das Delete Button wird erst dann angezeigt, wenn man als Admin angemeldet ist. Nur dann kann man ein Produkt löschen
               if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
                 if($_COOKIE["privalage"] == 10){
                   ?>
-                  <button name="delete" class="shop-delete-btn"><a href="/dhbw/ludomo/php/shop.php?delete=<?= $proditems['ID']; ?>">Remove</a></button>
+                  <form action="/dhbw/ludomo/php/shop.php">
+                    <button name="delete" value="<?= $proditems['ID']; ?>" class="shop-delete-btn">Remove</button>
+                  </form>
                   <?php
                 }
               }
