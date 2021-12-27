@@ -1,0 +1,164 @@
+<?php
+
+// servername => localhost
+// username => root
+// password => empty
+// database name => ludomo
+$con = mysqli_connect("localhost", "root", "", "ludomo");
+
+// Check connection
+if($con === false){
+    die("ERROR: Could not connect. "
+        . mysqli_connect_error());
+}
+
+$product_id =  $_GET['overview'];
+
+
+$product_query = "SELECT * FROM products WHERE products.ID = $product_id";
+$product_query_run  = mysqli_query($con, $product_query);
+
+      if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"])){
+        if($_COOKIE["privalage"] == 10){
+          if(mysqli_num_rows($product_query_run) > 0)
+          {
+              foreach($product_query_run as $proditem)
+              {
+          ?>
+
+          <div class="main-content">
+            <div class="form-content">
+              <div class="container">
+          <form action="http://localhost/dhbw/ludomo/php/product_edit.php?overview=<?= $product_id ?>" method="post" enctype="multipart/form-data" >
+          <div class="row">
+            <div class="col-25">
+              <label for="title">Title</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="title" name="title" value="<?= $proditem['name'] ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="ovp_price">OVP Price</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="ovp_price" name="ovp_price" value="<?= $proditem['preis'] ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="discount">Discount</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="discount" name="discount" value="<?= $proditem['rabatt'] ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="end_price">End-Price</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="end_price" name="end_price" value="<?= $proditem['endpreis'] ?>">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="game_mode">Game Mode</label>
+            </div>
+            <div class="col-75">
+              <select id="game_mode" name="game_mode" option="<?= $proditem['S_M_id'] ?>">
+                <option value="1" <?=$proditem['S_M_id'] == 1 ? ' selected="selected"' : '';?>>Single-player</option>
+                <option value="2" <?=$proditem['S_M_id'] == 2 ? ' selected="selected"' : '';?>>Multi-player</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="game_platform">Platform</label>
+            </div>
+            <div class="col-75">
+              <select id="game_platform" name="game_platform">
+                <option value="1" <?=$proditem['platform_id'] == 1 ? ' selected="selected"' : '';?>>PC</option>
+                <option value="2" <?=$proditem['platform_id'] == 2 ? ' selected="selected"' : '';?>>XBOX</option>
+                <option value="3" <?=$proditem['platform_id'] == 3 ? ' selected="selected"' : '';?>>Playstation</option>
+                <option value="4" <?=$proditem['platform_id'] == 4 ? ' selected="selected"' : '';?>>Switch</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="game_genre">Genre</label>
+            </div>
+            <div class="col-75">
+              <select id="game_genre" name="game_genre">
+                <option value="1" <?=$proditem['genre_id'] == 1 ? ' selected="selected"' : '';?>>Action</option>
+                <option value="2" <?=$proditem['genre_id'] == 2 ? ' selected="selected"' : '';?>>Survival</option>
+                <option value="3" <?=$proditem['genre_id'] == 3 ? ' selected="selected"' : '';?>>Strategie</option>
+                <option value="4" <?=$proditem['genre_id'] == 4 ? ' selected="selected"' : '';?>>Simulation</option>
+                <option value="5" <?=$proditem['genre_id'] == 5 ? ' selected="selected"' : '';?>>MMO</option>
+                <option value="6" <?=$proditem['genre_id'] == 6 ? ' selected="selected"' : '';?>>Shooter</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="game_brand">Brand</label>
+            </div>
+            <div class="col-75">
+              <select id="game_brand" name="game_brand">
+                <option value="1" <?=$proditem['brand_id'] == 1 ? ' selected="selected"' : '';?>>Ubisoft</option>
+                <option value="2" <?=$proditem['brand_id'] == 2 ? ' selected="selected"' : '';?>>Microsoft</option>
+                <option value="3" <?=$proditem['brand_id'] == 3 ? ' selected="selected"' : '';?>>Steam</option>
+                <option value="4" <?=$proditem['brand_id'] == 4 ? ' selected="selected"' : '';?>>Origin</option>
+                <option value="5" <?=$proditem['brand_id'] == 5 ? ' selected="selected"' : '';?>>Epic Games</option>
+                <option value="6" <?=$proditem['brand_id'] == 6 ? ' selected="selected"' : '';?>>Switch</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="game_fsk">FSK</label>
+            </div>
+            <div class="col-75">
+              <select id="game_fsk" name="game_fsk" >
+                <option value="1" <?=$proditem['fsk_id'] == 1 ? ' selected="selected"' : '';?>>FSK 0</option>
+                <option value="2" <?=$proditem['fsk_id'] == 2 ? ' selected="selected"' : '';?>>FSK 6</option>
+                <option value="3" <?=$proditem['fsk_id'] == 3 ? ' selected="selected"' : '';?>>FSK 12</option>
+                <option value="4" <?=$proditem['fsk_id'] == 4 ? ' selected="selected"' : '';?>>FSK 16</option>
+                <option value="5" <?=$proditem['fsk_id'] == 5 ? ' selected="selected"' : '';?>>FSK 18</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="description">Description</label>
+            </div>
+            <div class="col-75">
+              <textarea id="description" name="description" style="height:100px"><?= $proditem['discription'] ?></textarea>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <input type="submit" name="submit" value="Edit Product">
+          </div>
+          </form>
+          </div>
+            </div>
+          </div>
+
+
+          <?php
+        }}
+        }
+      }else{
+        ?>
+            TEST
+
+        <?php
+      }
+
+mysqli_close($con);
+
+
+?>

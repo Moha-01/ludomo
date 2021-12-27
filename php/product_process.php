@@ -57,8 +57,6 @@ if ($uploadOk == 0) {
   }
 }
 
-
-
 // servername => localhost
 // username => root
 // password => empty
@@ -78,7 +76,7 @@ $name = $_POST['title'];
 $preis = $_POST['ovp_price'];
 $rabatt = $_POST['discount'];
 $endpreis = $_POST['end_price'];
-//Picture Pfad
+//Picture Path
 $picture = "http://localhost/dhbw/ludomo/assets/images/".$imgName. "";
 echo $picture;
 $fsk_id = $_POST['game_fsk'];
@@ -103,6 +101,7 @@ if(mysqli_query($conn, $sql)){
 // Close connection
 mysqli_close($conn);
 
+//reload to shop
 header("Location: /dhbw/ludomo/php/shop.php");
 
 ?>
