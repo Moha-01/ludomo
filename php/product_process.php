@@ -32,12 +32,6 @@ if (file_exists($target_file)) {
   $uploadOk = 0;
 }
 
-// Check file size
-if ($_FILES["image"]["size"] > 500000) {
-  echo "Sorry, your file is too large.";
-  $uploadOk = 0;
-}
-
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
@@ -78,15 +72,15 @@ $rabatt = $_POST['discount'];
 $endpreis = $_POST['end_price'];
 //Picture Path
 $picture = "http://localhost/dhbw/ludomo/assets/images/".$imgName. "";
-echo $picture;
 $fsk_id = $_POST['game_fsk'];
 $platform_id = $_POST['game_platform'];
+$discription = $_POST['description'];
 
 // Performing insert query execution
 // here our table name is products
 $sql = "INSERT INTO products
-(`brand_id`, `genre_id`, `S_M_id`, `name`, `preis`, `rabatt`, `endpreis`, `picture`, `fsk_id`, `platform_id`)
- VALUES ('$brand_id', '$genre_id','$S_M_id','$name','$preis','$rabatt','$endpreis','$picture','$fsk_id','$platform_id')";
+(`brand_id`, `genre_id`, `S_M_id`, `name`, `preis`, `rabatt`, `endpreis`, `picture`, `fsk_id`, `platform_id`, `discription`)
+ VALUES ('$brand_id', '$genre_id','$S_M_id','$name','$preis','$rabatt','$endpreis','$picture','$fsk_id','$platform_id', '$discription')";
 
 if(mysqli_query($conn, $sql)){
     echo "<h3>data stored in a database successfully."
