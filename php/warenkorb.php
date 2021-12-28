@@ -1,5 +1,5 @@
 <?php
-//Diese PHP-Datei Sammelt Dateien um die Seite warenkorb zu erstellen 
+//Diese PHP-Datei Sammelt Dateien um die Seite warenkorb zu erstellen
 if(array_key_exists('add_to_cart', $_GET)) {
     add2Cart($_GET['add_to_cart']);
 }
@@ -14,7 +14,7 @@ function add2Cart($itemid) {
 // Cookie erstellen
       setcookie('Warenkorb', $itemid, time()+3600, "/");
     }
-    header("Location: /dhbw/ludomo/php/shop.php");
+    header("Location: /dhbw/tinf20_ludomo_app/php/shop.php");
 }
 
 include "../html/templates/head.html";

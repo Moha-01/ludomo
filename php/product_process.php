@@ -71,7 +71,7 @@ $preis = $_POST['ovp_price'];
 $rabatt = $_POST['discount'];
 $endpreis = $_POST['end_price'];
 //Picture Path
-$picture = "http://localhost/dhbw/ludomo/assets/images/".$imgName. "";
+$picture = "http://localhost/dhbw/tinf20_ludomo_app/assets/images/".$imgName. "";
 $fsk_id = $_POST['game_fsk'];
 $platform_id = $_POST['game_platform'];
 $discription = $_POST['description'];
@@ -96,7 +96,7 @@ if(mysqli_query($conn, $sql)){
 mysqli_close($conn);
 
 //reload to shop
-header("Location: /dhbw/ludomo/php/shop.php");
+header("Location: /dhbw/tinf20_ludomo_app/php/shop.php");
 
 ?>
 

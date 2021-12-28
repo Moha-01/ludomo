@@ -5,7 +5,7 @@ if(isset($_GET['btnLogout'])){
   setcookie("email", "", time()-(60*60*24*7),"/");
   setcookie("username", "", time()-(60*60*24*7),"/");
   setcookie("privalage", "", time()-(60*60*24*7),"/");
-  echo "<script>window.location = 'http://localhost/dhbw/ludomo/php/konto.php'</script>";
+  echo "<script>window.location = 'http://localhost/dhbw/tinf20_ludomo_app/php/konto.php'</script>";
 }
 // Wenn der Button Delete geklickt wird, dann wird der User in der Selbe Reihe wie der Button gelöscht
 if(isset($_GET['btnDelete'])){
@@ -14,7 +14,7 @@ if(isset($_GET['btnDelete'])){
   $sql = "DELETE FROM user_tabelle WHERE ID=$btnNmbr";      //SQL Statement zum löschen einer User
   mysqli_query($conn, $sql);                                //SQL Statement ausführen
   mysqli_close($conn);                                      //SQL Ausführung abschließen
-  echo "<script>window.location = 'http://localhost/dhbw/ludomo/php/konto.php'</script>";
+  echo "<script>window.location = 'http://localhost/dhbw/tinf20_ludomo_app/php/konto.php'</script>";
 }
 // Wenn der Button Upgrade geklickt wird, dann wird der User in der Selbe Reihe wie der Button zum Admin gemacht
 if(isset($_GET['btnUpgrade'])){
@@ -23,7 +23,7 @@ if(isset($_GET['btnUpgrade'])){
   $sql = "UPDATE user_tabelle SET privalage='10' WHERE ID = $btnNmbr";
   mysqli_query($conn, $sql);
   mysqli_close($conn);
-  echo "<script>window.location = 'http://localhost/dhbw/ludomo/php/konto.php'</script>";
+  echo "<script>window.location = 'http://localhost/dhbw/tinf20_ludomo_app/php/konto.php'</script>";
 }
 // Wenn der Button Downgrade geklickt wird, dann wird der User in der Selbe Reihe wie der Button zdie Admin Rechte weg genommen
 if(isset($_GET['btnDowngrade'])){
@@ -32,7 +32,7 @@ if(isset($_GET['btnDowngrade'])){
   $sql = "UPDATE user_tabelle SET privalage='1' WHERE ID = $btnNmbr";
   mysqli_query($conn, $sql);
   mysqli_close($conn);
-  echo "<script>window.location = 'http://localhost/dhbw/ludomo/php/konto.php'</script>";
+  echo "<script>window.location = 'http://localhost/dhbw/tinf20_ludomo_app/php/konto.php'</script>";
 
 }
 

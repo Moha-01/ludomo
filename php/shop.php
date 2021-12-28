@@ -13,7 +13,7 @@ function deleteProduct($itemid) {
     mysqli_query($conn, $sql);
     mysqli_close($conn);
 
-    header("Location: /dhbw/ludomo/php/shop.php");
+    header("Location: /dhbw/tinf20_ludomo_app/php/shop.php");
 }
 
 
