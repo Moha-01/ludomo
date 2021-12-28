@@ -39,6 +39,8 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
   - Admins können Produkte hinzufügen/löschen/verändern (A)
   - Alle Website-Nutzer können einen Warenkorb haben. (A, R, B)
   - Alle Website-Nutzer können die Produkte anschauen (A, R, B)
+  - Admin kann Benutzerkonten verwalten (Feature). (A)
+  - User können ihren eigenen Account löschen (Feature) (A, R)
 
 2. Listenansicht:
   - Admins können Benutzerkonten auflisten dazu noch verwalten (Feature). (A)
@@ -64,3 +66,6 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
 
 - Die Videos zu der Website & Quellcode sind im Footer des Websites (Verlinkt) zu finden.
   Wir wünschen Ihnen viel Spaß beim Zuschauen.
+
+
+Probieren SIe dies aus: https://areyousure.netlify.app/
