@@ -62,7 +62,7 @@
                   setcookie("email", $row["email"], time() + (3600*24), "/");
                   setcookie("privalage", $row["privalage"], time() + (3600*24), "/");
                   header("Refresh:0");        //Seite Neu Laden
-                }
+                } 
               }
               else {
                 echo "Error: User not found".mysqli_error($conn);
