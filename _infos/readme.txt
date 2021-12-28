@@ -8,7 +8,7 @@ Studenten:
 
 Beschreibung: Es wird hierbei an einem webbasiertes CMS (Content Management System) gearbeitet.
               Die Idee ist es, einen Gaming Shop zu erstellen, wo Admins die Website verwalten können.
-              Natürlich könne auch nicht-admin Berechtigte auf die Website zugreifen und surfen.
+              Natürlich können auch normal Benutzer (Nicht Admin) auf die Website zugreifen und surfen.
               Nur nicht verwalten und Optionen ändern.
 
 
@@ -58,3 +58,9 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
   - Automatischer Wechselnder Hintergrund (Zeit basiert)
   - Produktbeschreibung anzeigen. (A, R, B) + Verändern (Feature). (A)
   - Die allgemeine Verwaltung des Systems kann nur ein Admin übernehmen. (A)
+
+
+//------------------------          Hinweise      -------------------------//
+
+- Die Videos zu der Website & Quellcode sind im Footer des Websites (Verlinkt) zu finden.
+  Wir wünschen Ihnen viel Spaß beim Zuschauen. 
