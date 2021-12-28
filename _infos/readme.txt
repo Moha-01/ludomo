@@ -68,5 +68,6 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
   Wir wünschen Ihnen viel Spaß beim Zuschauen.
 - Sollte die Bildqualtität der Videos schlecht sein, klicken Sie oben rechts auf dem Pfeil um das Video über Google Drive herunterzuladen.
   Dann muss die Bildqualtität besser sein.
+- Projekt is auch in GitHub zu finden unter: https://github.com/Moha-01/ludomo.
 
 Probieren SIe dies aus: https://areyousure.netlify.app/
