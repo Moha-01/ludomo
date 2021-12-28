@@ -66,6 +66,7 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
 
 - Die Videos zu der Website & Quellcode sind im Footer des Websites (Verlinkt) zu finden.
   Wir wünschen Ihnen viel Spaß beim Zuschauen.
-
+- Sollte die Bildqualtität der Videos schlecht sein, klicken Sie oben rechts auf download um das Video downzuloaden.
+  Dann sollte die Bildqualtität besser sein.
 
 Probieren SIe dies aus: https://areyousure.netlify.app/
