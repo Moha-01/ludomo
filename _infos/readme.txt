@@ -17,7 +17,7 @@ Beschreibung: Es wird hierbei an einem webbasiertes CMS (Content Management Syst
 - Für die Darstellung der Website verwenden wir unser eigenes CSS Code und verzichten auf Frameworks.
 - Fontawsome wird lediglich, um das Warenkorb-Icon anzuzeigen.
 - Wir benötigen keine speziele Funktionen wie PDF erstellen, daher benutzen wir auch keine PHP-Libraries
-- Für das PopUp Fenster haben wir einen JavaScript Funktion benötigt (alert()), da wir sonst keine PHP-Funktionen gefunden haben.
+- Für das PopUp Fenster haben wir einen JavaScript Funktion benötigt (alert() & window.location), da wir sonst keine PHP-Funktionen gefunden haben.
 - Unser Branding ist selbst erstellt/entwickelt (Logo, etc...).
 - Unser Quelltxt wurde oft auf Errors geprüft. Wir habe alle Errors behoben.
   Also ist unsere Website Fehlerfrei, jedoch können Fehler auftreten bei falscher Verwaltung des Systems.
@@ -63,4 +63,4 @@ A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert
 //------------------------          Hinweise      -------------------------//
 
 - Die Videos zu der Website & Quellcode sind im Footer des Websites (Verlinkt) zu finden.
-  Wir wünschen Ihnen viel Spaß beim Zuschauen. 
+  Wir wünschen Ihnen viel Spaß beim Zuschauen.
