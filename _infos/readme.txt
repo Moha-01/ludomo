@@ -1,45 +1,60 @@
+//------------------------  Allgemeine Infos zum Projektteam -------------------------//
+
+Projekt: Ludomo
+Studenten:
+            - 8528264   (Mohamed Haji)
+            - 4873531   (Lukas Hauzinger)
+            - 8233288   (Dominic Merkle)
+
+Beschreibung: Es wird hierbei an einem webbasiertes CMS (Content Management System) gearbeitet.
+              Die Idee ist es, einen Gaming Shop zu erstellen, wo Admins die Website verwalten können.
+              Natürlich könne auch nicht-admin Berechtigte auf die Website zugreifen und surfen.
+              Nur nicht verwalten und Optionen ändern.
+
+
+//------------------------  Allgemeine Infos zum Projekt -------------------------//
+
+- Für die Darstellung der Website verwenden wir unser eigenes CSS Code und verzichten auf Frameworks.
+- Fontawsome wird lediglich, um das Warenkorb-Icon anzuzeigen.
+- Wir benötigen keine speziele Funktionen wie PDF erstellen, daher benutzen wir auch keine PHP-Libraries
+- Für das PopUp Fenster haben wir einen JavaScript Funktion benötigt (alert()), da wir sonst keine PHP-Funktionen gefunden haben.
+- Unser Branding ist selbst erstellt/entwickelt (Logo, etc...).
+- Unser Quelltxt wurde oft auf Errors geprüft. Wir habe alle Errors behoben.
+  Also ist unsere Website Fehlerfrei, jedoch können Fehler auftreten bei falscher Verwaltung des Systems.
+  Beispiel: Produkt hinzufügen und dabei vergessen einen Bild dafür auszuwählen oder die falsche Datei-Format hochladen.
+- Die Datenbank wird initialisiert und mit den Daten vom BackUP befüllt. Dies erfolgt nur beim Laden der Home Seite,
+  wenn die Datenbank noch nicht angelegt ist.
+- Unter Account sind bereits zwei Admins angelegt.
+  Wir empfehlen daher einen weiteren Account zu regestrieren, um die Funktionalität besser in Erfahrungen zu bringen.
 
 
 
-- webbasiertes Content Management System (Gaming Shop)
+//------------------------  Funktionale Anforderungen -------------------------//
 
-- Eigens CSS wurde geschrieben. Keine Framework benutzt.
-- Fontawesome nur für das Warenkorb icon in Benutzung.
-- Wir benutzen keine PHP-Libraries
-- Es wird nur einen JavaScript Befehl benutzt und zwar für das Popup Fenster
-- Selbst gemachte Logo.
-- Quelltext ist super valide (Absolut keine Errors mehr)
-- Beim erstem Laden von der Website (Hauptsächlich die Home Site) wird die Datenbank angelegt.
-- Hinweise machen zum Account, dass man user regestriert und dann über admin anschauen. Zum Improvment
-- Idee hintergrund musik beim Shoppen.
+A = Administrator | R = Registrierter Benutzer | B = Besucher (Nicht registriert)
 
-
-Funktionale Anforderungen:
 1. CRUD:
-  - Eigenes Benutzerkonto (A, R)
-  - Alle Benutzerkonten (A)
-  - Neue Game hinzufügen/löschen/verändern (A)
-  - Einkaufkorb erstellen (A, R, B)
-  - Produkte anschauen (A, R, B)
+  - Alle Nutzer können auf das eigene Profil zugreifen. (A, R)
+  - Nur Admin kann auf alle Benutzerkonten zugreifen. (A)
+  - Admins können Produkte hinzufügen/löschen/verändern (A)
+  - Alle Website-Nutzer können einen Warenkorb haben. (A, R, B)
+  - Alle Website-Nutzer können die Produkte anschauen (A, R, B)
 
 2. Listenansicht:
-  - Alle Benutzerkonten (A) auch verwalten (kleines Feature)
-  - Spiele (Ansehen: A,R,B | Ändern: A)
-  - DLCs & Season Pass (Spieleerweiterungen) (Ansehen: A,R,B | Ändern: A)
+  - Admins können Benutzerkonten auflisten dazu noch verwalten (Feature). (A)
+  - Alle Website-Nutzer können die Produkte auflisten. (A, R, B)
+  - Admins können gelistete Produkte ändern. (A)
 
-3. Sortierung & Filterung:
+3. Sortierung & Filterung nach:
   - FSK
   - Platform
-  - Preis (Bestimmt und auch nach Sortierung)
+  - Preis (maximal Preis)
+  - Preis (Aufsteigend oder Absteigend)
   - Genre
-  - Brand (kleines Feature)
-  - Mode (kleines Feature)
+  - Brand (Feature)
+  - Game-Mode wie Singleplayer oder Multiplayer (Feature)
 
 4. Sonstiges:
-  - automatischer Wechselnder Hintergrund
-  - Produktbeschreibung + Verändern (kleines Feature)
-  - CMS (Ware hinzufügen/löschen/verändern) (A)
-
-
-Hinweise:
-Beim hochladen von einem Produkt, niemals das Bild vergessen zum einfügen, sonst Fehler!.
+  - Automatischer Wechselnder Hintergrund (Zeit basiert)
+  - Produktbeschreibung anzeigen. (A, R, B) + Verändern (Feature). (A)
+  - Die allgemeine Verwaltung des Systems kann nur ein Admin übernehmen. (A)
