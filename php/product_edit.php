@@ -1,5 +1,5 @@
 <?php
-
+// If Button (edit product) was clicked this file will be executed and saves/updates the product in the DB.
 // servername => localhost
 // username => root
 // password => empty

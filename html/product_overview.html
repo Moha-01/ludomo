@@ -17,7 +17,7 @@ $product_id =  $_GET['overview'];
 
 $product_query = "SELECT * FROM products WHERE products.ID = $product_id";
 $product_query_run  = mysqli_query($con, $product_query);
-
+      //Check if user is logged in and has admin permission
       if(isset($_COOKIE["username"]) && isset($_COOKIE["privalage"]) && $_COOKIE["privalage"] == 10){
           if(mysqli_num_rows($product_query_run) > 0)
           {

@@ -1,10 +1,11 @@
 <?php
 //Diese PHP-Datei Sammelt Dateien um die Seite shop zu erstellen
 
+//Prüft ob Delete-Button geklickt wurde
 if(array_key_exists('delete', $_GET)) {
     deleteProduct($_GET['delete']);
 }
-// Funktion um den cookie für den Warenkorb  zu erstellen und erweitern
+// Funktion löscht Produkt aus der Datenbank
 function deleteProduct($itemid) {
 
     $conn = mysqli_connect("localhost","root","","ludomo");  //Verbindung zu DB aufbauen

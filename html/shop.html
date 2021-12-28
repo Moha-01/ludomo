@@ -274,7 +274,9 @@
 
   <div class="shop-products">
     <?php
+        //Zum Bestimmen von Produktduplikate, um die Duplikate zusammenzufassen und als ein Produkt aufzulisten
         $number_of_filter_checkboxes = 0;
+        //Alle Produkte die auf den Filter passen werden in dieser Variable gespeichert
         $products_items = array();
         $output_products = [];
 
@@ -440,6 +442,7 @@
               if($counter == $number_of_filter_checkboxes){
                 array_push($duplicated_items, $current_united_item);
               }
+              //Counter wird zurückgesetzt um für neues Produkt im Anschluss die Duplikate zu bestimmen
               $counter = 0;
             }
             //Filter zeigt nur duplizierte Produkte an (nach Filter gewünscht)
@@ -499,7 +502,7 @@
         {
           //Alle Produkte Anzeigen. Da kein Filter aktiviert ist
         $products = "SELECT * FROM products";
-        //Prise Sortierung
+        //Price Sortierung
         if(isset($_GET['price'])){
 
           $number_of_filter_checkboxes++;

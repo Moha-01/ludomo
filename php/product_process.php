@@ -7,7 +7,7 @@
   <body>
     <center>
 <?php
-
+//upload of the product image
 $target_dir = "../assets/images/";
 $imgName = basename($_FILES["image"]["name"]);
 $target_file = $target_dir . $imgName;
